@@ -48,7 +48,27 @@ Time: about 25 minutes. This procedure does not need AI help.
 
     **Result:** The terminal shows `OK`.
 
-### Part C: Remove old settings
+### Fast path: Parts C to F with one script (recommended)
+
+17. Type `cd ~/Work/practice-omarchy && git pull` and press `Enter`.
+18. Type `bash scripts/ccgo-setup.sh` and press `Enter`.
+19. Answer each question. Type `y` to comment out old `ANTHROPIC` lines.
+20. When the script asks, paste the key. Press `Super + V`. Press `Enter`.
+
+    **Result:** The terminal shows `Result: all four models work.`
+21. Open a new terminal. Press `Super + Return`.
+22. Type `mkdir -p ~/Work/test && cd ~/Work/test && ccgo` and press `Enter`.
+23. In Claude Code, type `/status` and press `Enter`.
+
+    **Result:** The screen shows the base URL `opencode.ai`.
+24. Type `Say OK` and press `Enter`.
+
+    **Result:** The model replies.
+
+If the script stops, read the text. If the text says `STOP`, do what it says. Then run step 18 again.
+If you use the fast path, do not do Parts C to F below.
+
+### Part C (manual alternative): Remove old settings
 
 **CAUTION:** Remove only the lines that contain `ANTHROPIC`. Do not delete files.
 

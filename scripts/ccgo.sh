@@ -42,7 +42,7 @@ ccgo() {
 }
 
 ccgo-check() {
-    local key model code
+    local key model code failed=0
     key="$(_ccgo_key)" || return 1
     for model in "$CCGO_SONNET" "$CCGO_OPUS" "$CCGO_HAIKU" "$CCGO_SUBAGENT"; do
         # key goes through curl's stdin config so it never appears in `ps`
@@ -54,10 +54,11 @@ ccgo-check() {
             "$CCGO_BASE_URL/v1/messages" 2>&1)" || true
         case "$code" in
             200) echo "ok    $model" ;;
-            401|403) echo "FAIL  $model  HTTP $code: key rejected. FIX: check the key in the OpenCode console." ;;
-            404) echo "FAIL  $model  HTTP 404: unknown endpoint or model id. FIX: compare with https://opencode.ai/docs/go/" ;;
-            429) echo "LIMIT $model  HTTP 429: this model's budget is used up. FIX: ccgo --model <another model>" ;;
-            *) echo "FAIL  $model  HTTP/curl result: $code" ;;
+            401|403) failed=1; echo "FAIL  $model  HTTP $code: key rejected. FIX: check the key in the OpenCode console." ;;
+            404) failed=1; echo "FAIL  $model  HTTP 404: unknown endpoint or model id. FIX: compare with https://opencode.ai/docs/go/" ;;
+            429) failed=1; echo "LIMIT $model  HTTP 429: this model's budget is used up. FIX: ccgo --model <another model>" ;;
+            *) failed=1; echo "FAIL  $model  HTTP/curl result: $code" ;;
         esac
     done
+    return "$failed"
 }
