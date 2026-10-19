@@ -11,7 +11,7 @@ from other facts and you should check it on your machine.
 | Cmd as the main modifier | `Super` (the Windows key) is the anchor for almost every binding | manual: coming-from-mac |
 | Spotlight / Raycast | `Super + Space` (Omarchy menu) | manual: coming-from-mac |
 | Cmd+C / Cmd+V everywhere | `Super + C` / `Super + V`, also in the terminal | manual: coming-from-mac |
-| Cmd+Q, Cmd+W | `Super + Q` or `Super + W` close the window; the app really quits | manual: coming-from-mac |
+| Cmd+Q, Cmd+W | `Super + W` closes the window. `Super + Q` is not a default Omarchy binding (the manual lists it; verify on your version). | manual: coming-from-mac |
 | Cmd+Tab | `Alt + Tab` cycles windows on the workspace | manual: hotkeys |
 | Spaces / Mission Control | Workspaces: `Super + 1/2/3/4` | manual: coming-from-mac |
 | Window snapping (Rectangle, Magnet) | Not needed: windows tile themselves; `Super + T` floats one | manual: coming-from-mac |

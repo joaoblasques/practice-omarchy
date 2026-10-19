@@ -37,7 +37,6 @@ as `| Action | Keys |` with the keys in backticks, and one table per `##` sectio
 | Action | Keys |
 | :--- | :--- |
 | Close the window | `Super + W` |
-| Close the window (Mac habit) | `Super + Q` |
 | Toggle a window between tiling and floating | `Super + T` |
 | Toggle window position (horizontal or vertical) | `Super + J` |
 | Go full screen | `Super + F` |

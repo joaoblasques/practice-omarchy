@@ -26,7 +26,7 @@ Goal: launch, switch and close things using only `Super`.
 - [ ] Day 2: Jump between workspaces `Super + 1/2/3/4`; send a window to another with `Super + Shift + 1/2/3/4`.
 - [ ] Day 3: Move focus with `Super + Arrow`, swap windows with `Super + Shift + Arrow`, flip a split with `Super + J`.
 - [ ] Day 4: Copy and paste with `Super + C` / `Super + V`, including inside the terminal. Open clipboard history with `Super + Ctrl + V`.
-- [ ] Day 5: Close windows with `Super + W` and with `Super + Q` (your Mac habit). Toggle one floating with `Super + T`.
+- [ ] Day 5: Close a window with `Super + W`. Toggle one floating with `Super + T`. (Mac habit: `Super + Q` is not a default Omarchy binding on this version.)
 - [ ] Day 6: Take a screenshot (`Print Screen`), then extract text from a screen region (`Super + Ctrl + Print Screen`) and paste it.
 - [ ] Day 7: Open the Omarchy menu (`Super + Space`) and change the theme without the mouse.
 
