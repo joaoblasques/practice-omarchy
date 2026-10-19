@@ -54,7 +54,8 @@ unrecorded. Commit only when asked.
 - Avoid `py_compile` (writes `__pycache__`); use `compile(open(f).read(), f, 'exec')`.
 
 ## Safety rules
-- **Never run the installer against the real `$HOME`** without `--dry-run`. A write test is
+- **Never run the installer against the real `$HOME`** without `--dry-run`. Exception: on a real Omarchy
+  machine, after the owner approves a dry run (see `CLAUDE.md`). A write test is
   allowed only with a throwaway home: `HOME=$(mktemp -d) bash scripts/practice-omarchy-setup.sh --skip-packages --skip-tpm`.
 - The installer must stay additive: no overwriting files, no `unbind-key -a`, no writing
   Omarchy-generated configs (Ghostty, Starship, Hyprland). Back up before any edit.
