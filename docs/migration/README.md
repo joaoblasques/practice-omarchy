@@ -2,6 +2,8 @@
 
 Order of operations. Do them in this order; each step is small.
 
+0. **Doing the move now?** Follow [thinkpad-setup.md](thinkpad-setup.md): numbered procedures, starting with
+   getting AI on the machine. The list below is the overview.
 1. **Inventory your Mac** (read-only, stays on your machine):
    `./scripts/mac-inventory.sh > ~/mac-inventory.txt`
    Keep that file out of git. It lists your installed tools with a hint for each.
