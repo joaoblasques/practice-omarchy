@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Personal / not for publication
+HANDOFF.md
+docs/hardware/
+mac-inventory*.txt
+*.practice-omarchy.bak.*

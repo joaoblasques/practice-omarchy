@@ -1,0 +1,77 @@
+# AGENTS.md
+
+Context for AI agents working in this repo. Read this before editing.
+
+## What this repo is
+Practice Omarchy: a public migration + practice kit for moving from macOS to Omarchy
+(Arch + Hyprland), plus the extra terminal tools many Mac developers run (Ghostty, Atuin,
+tmux plugins, AI agents). Target: **Omarchy v4**; facts come from https://omarchy.org/manual/.
+
+## Layout
+```
+README.md  CONTRIBUTING.md  LICENSE   public face
+AGENTS.md                         this file
+init.sh                           baseline checks (read-only, safe to run)
+feature_list.json                 work items: behavior + verification + state
+HANDOFF.md                        session state (gitignored); read first, update last
+docs/
+  migration/                      README (order), mac-map.md, bring-your-stuff.md
+  guide/exercise-guide.md         four-week practice plan
+  reference/keybindings.md        verified cheat sheet; the quiz is generated from it
+  reference/configs.md            what the installer adds; blocks mirror the installer
+  reference/ai-shell.md           inline-AI notes and alternatives
+  blog/omarchy-blog-post.md       publishable blog post
+  hardware/                       local-only vendor PDF (gitignored, never edit)
+scripts/
+  practice-omarchy-setup.sh       additive installer (--dry-run, backups, marked blocks)
+  practice-omarchy-cli.py         quiz; questions parsed from keybindings.md
+  ai-shell.zsh                    Ctrl+G natural language -> command widget
+  mac-inventory.sh                read-only brew inventory with Omarchy hints
+  check-drift.py                  fails if installer heredocs and configs.md blocks differ
+  copilot_alias.sh                RETIRED, delete (docs/reference/copilot-alias.md too)
+```
+
+## Session workflow
+Start: `pwd`, read `HANDOFF.md` if present, read `feature_list.json`, `git log --oneline -5`, run `./init.sh`.
+If `./init.sh` fails, fix that before any new work.
+
+Rules:
+- One feature `in_progress` at a time; finish or mark `blocked` before the next.
+- A feature is `passing` only after its `verification` command exits 0 and the result
+  is pasted into `evidence`. "Code written" is not done.
+- Don't weaken a check or edit `verification` to make something pass.
+- Stay inside the chosen feature; note unrelated problems in `HANDOFF.md`.
+- Cite a source (manual page, package page) for any new fact about Omarchy or Arch.
+
+End: `./init.sh` green, `feature_list.json` and `HANDOFF.md` updated, nothing half-done
+unrecorded. Commit only when asked.
+
+## Commands
+- Baseline, no side effects: `./init.sh` (syntax checks, shellcheck, installer dry-run, drift check, quiz selftest)
+- Quiz: `python3 scripts/practice-omarchy-cli.py` (needs a TTY); `--count`, `--selftest`, `--section tmux`
+- Installer preview: `bash scripts/practice-omarchy-setup.sh --dry-run [--shell zsh]`
+- Avoid `py_compile` (writes `__pycache__`); use `compile(open(f).read(), f, 'exec')`.
+
+## Safety rules
+- **Never run the installer against the real `$HOME`** without `--dry-run`. A write test is
+  allowed only with a throwaway home: `HOME=$(mktemp -d) bash scripts/practice-omarchy-setup.sh --skip-packages --skip-tpm`.
+- The installer must stay additive: no overwriting files, no `unbind-key -a`, no writing
+  Omarchy-generated configs (Ghostty, Starship, Hyprland). Back up before any edit.
+- Don't edit the user's dotfiles or source their rc files from here.
+- `docs/hardware/*.pdf` is a vendor manual. Don't modify or publish it.
+- Never commit secrets or `mac-inventory*.txt`.
+
+## Conventions
+- **Two places, kept identical:** the `add_block ... <<'EOF'` heredocs in the installer and the fenced
+  blocks under `<!-- block:NAME -->` in `docs/reference/configs.md`. `scripts/check-drift.py` enforces it.
+- **Quiz source:** `docs/reference/keybindings.md`. Rows must be `| Action | \`keys\` |`, one table per `##`.
+- Shell scripts: bash, `set -euo pipefail`, shellcheck-clean at `-S warning`.
+- Python: stdlib only, 3.12+. No new dependencies.
+- Docs in English. Facts over voice: if the blog post disagrees with the manual, fix the post.
+- Commit only when asked. Use `git -C <repo>` if working outside this directory.
+
+## Known limits (see `feature_list.json` for status)
+- Nothing here has run on a real Omarchy machine yet. Omarchy-side behaviour (tmux plugin
+  dependencies, `omarchy pkg add` AUR handling, Ctrl+G widget) is unverified.
+- The agent aliases `c`, `cx`, `cy` exist in Omarchy's bash; the zsh block approximates them
+  without Omarchy's auto-approve flags.

@@ -1,0 +1,114 @@
+{
+  "_rules": "One item in_progress at a time. Only set passing after `verification` exits 0; paste the result in `evidence`. states: not_started | in_progress | blocked | passing",
+  "_target": "Omarchy v4 (Quattro). Source of truth for facts: https://omarchy.org/manual/ (read 2026-10-19). v3 manual is legacy: learn.omacom.io/2/the-omarchy-manual",
+  "features": [
+    {
+      "id": "F01",
+      "priority": 1,
+      "behavior": "CLI quiz compiles with no warnings (banner uses raw strings)",
+      "verification": "python3 -W error -c \"f='scripts/practice-omarchy-cli.py'; compile(open(f).read(), f, 'exec')\"",
+      "state": "passing",
+      "evidence": "2026-10-19: compile with -W error::SyntaxWarning clean; banner moved to a raw string, then script replaced by F07 rewrite; init.sh now checks it.",
+      "notes": "Fixed; quiz later rewritten under F07."
+    },
+    {
+      "id": "F02",
+      "priority": 2,
+      "behavior": "Inline AI (Ctrl+G) replaces the retired gh-copilot alias",
+      "verification": "zsh -n scripts/ai-shell.zsh && zsh -c 'source scripts/ai-shell.zsh; ai-shell-suggest \"list hidden files\"' (needs a working claude login)",
+      "state": "passing",
+      "evidence": "2026-10-19: suggest fn returned 'find . -type f -size +100M -exec ls -lh {} +' for a size query, 4.1s; zsh -n clean. ZLE widget/Ctrl+G NOT tested interactively (no TTY). Old copilot_alias.sh + copilot-alias.md still exist: owner must delete (rm was denied).",
+      "notes": "Docs: docs/reference/ai-shell.md. Re-test Ctrl+G on the ThinkPad."
+    },
+    {
+      "id": "F03",
+      "priority": 3,
+      "behavior": "Installer is additive: backs up every file it touches, supports --dry-run, never overwrites Omarchy-generated configs",
+      "verification": "bash scripts/practice-omarchy-setup.sh --dry-run exits 0 on macOS and prints each action without writing; rg -n 'unbind-key -a|> ~/.config/ghostty|> ~/.tmux.conf' scripts/ returns nothing",
+      "state": "passing",
+      "evidence": "2026-10-19: --dry-run exits 0 on macOS and writes nothing; grep for unbind-key -a / ghostty / ~/.tmux.conf writes returns nothing. Fake-HOME run (--skip-packages --skip-tpm): existing lines preserved, .bak files created, second run skips, zsh block parses with zsh -n. NOT run on real Omarchy.",
+      "notes": "Shipped additive installer. Open risks: tmux-sessionx/floax dependencies unverified; `omarchy pkg add` AUR handling unknown (installer uses yay for sesh-bin, falls back to a hint)."
+    },
+    {
+      "id": "F04",
+      "priority": 4,
+      "behavior": "Layout functions and aliases match between installer and configs.md",
+      "verification": "python3 scripts/check-drift.py",
+      "state": "passing",
+      "evidence": "2026-10-19: now compares whole blocks (tmux, bash, zsh). init.sh green. Negative test: changed floax-bind in a copy of configs.md, check-drift exited 1 with a DRIFT message.",
+      "notes": "Rewritten to compare whole heredoc blocks against fenced blocks in configs.md."
+    },
+    {
+      "id": "F05",
+      "priority": 5,
+      "behavior": "Docs state a target Omarchy version and one verified keybinding cheat sheet; guide, README, quiz and blog agree with it",
+      "verification": "docs/practice/keybindings.md exists with a source URL + date; rg -n 'Floax|Flax|Workm|STE protocol|practice-omarchy-guide' README.md docs scripts returns nothing wrong",
+      "state": "passing",
+      "evidence": "2026-10-19: docs/reference/keybindings.md has manual URLs + read date; stale-claims grep clean (remaining hits are correct 'Floax' spelling or the rule against unbind-key -a); README, guide, quiz and blog corrected. Facts come from the manual, not from a live Omarchy install.",
+      "notes": "Known wrong/unsafe claims: default terminal is Foot (v4) / Alacritty (v3), Ghostty is an optional install; Super+Q also closes windows (Mac habit); Super+C/V universal clipboard is missing from the docs and is the biggest Mac-switcher win; 'Flax' vs tmux-floax; blog links nonexistent practice-omarchy-guide.md; 'STE protocol' unsourced. In v3, Super+Space was the app launcher and Super+Alt+Space the Omarchy menu; v4 swapped them."
+    },
+    {
+      "id": "F06",
+      "priority": 6,
+      "behavior": "Migration guide: Mac tool -> Omarchy equivalent -> ships by default? -> action, plus bring-your-stuff checklist (ssh, gpg, git, browser, 1Password, ThinkPad hardware)",
+      "verification": "docs/migration/ exists; every tool row has all four columns; mac-inventory script runs read-only on macOS",
+      "state": "passing",
+      "evidence": "2026-10-19: docs/migration/{README,mac-map,bring-your-stuff}.md written; every map row has a source column; scripts/mac-inventory.sh shellcheck-clean and ran read-only on this Mac.",
+      "notes": "Personal Mac inventory (brew leaves) must stay out of git. Omarchy manual has a 'coming from Mac or Windows' chapter to cite, not copy."
+    },
+    {
+      "id": "F07",
+      "priority": 7,
+      "behavior": "Practice curriculum: 4-week plan with daily drills and a progress checklist; quiz reads its questions from the keybinding data instead of hard-coding 12",
+      "verification": "python3 scripts/practice-omarchy-cli.py --help exits 0; question count >= 40; every answer traceable to keybindings.md",
+      "state": "passing",
+      "evidence": "2026-10-19: --help exit 0; --count 94 (>=40); --selftest ok (94 questions, 10 sections, 4 unique options each). Four-week plan in docs/guide/exercise-guide.md.",
+      "notes": "Current quiz tests recall of multiple choice, not doing. Add task-style drills ('do X in tmux, then type done')."
+    },
+    {
+      "id": "F08",
+      "priority": 8,
+      "behavior": "Every package the installer names is verified against Arch repos / AUR",
+      "verification": "table in docs/migration with repo (extra|AUR) and check date for each package",
+      "state": "passing",
+      "evidence": "2026-10-19: atuin, superfile, television in Arch extra; sesh-bin AUR only. Table in docs/migration/mac-map.md. Based on package/mirror pages found by search; mirrors can lag.",
+      "notes": "Search result 2026-10-19: atuin extra, superfile extra, sesh-bin AUR. television unconfirmed. Omarchy ships yay; `omarchy pkg add` is documented for repo packages."
+    },
+    {
+      "id": "F09",
+      "priority": 9,
+      "behavior": "Open-source ready: LICENSE, personal bits removed, Corne PDF not published, CONTRIBUTING real, branch main, first commit",
+      "verification": "test -f LICENSE; git check-ignore docs/hardware/corne-v4.1-manual.pdf; git branch --show-current prints main",
+      "state": "passing",
+      "evidence": "2026-10-19: LICENSE (MIT) present; docs/hardware/ gitignored (check-ignore ok); branch is main; HANDOFF.md and mac-inventory*.txt gitignored. NO COMMIT made (not asked).",
+      "notes": "Owner decisions assumed (my calls, change if wrong): MIT license, name 'Jonas Blasques', Corne PDF kept locally but gitignored (vendor copyright), starship golang/aws modules made optional."
+    },
+    {
+      "id": "F10",
+      "priority": 10,
+      "behavior": "Validate on the real ThinkPad (Omarchy v4): installer, tmux plugins, Ctrl+G widget, zsh path, keybindings",
+      "verification": "On the ThinkPad: run scripts/practice-omarchy-setup.sh --dry-run, then the real run; open tmux and press Prefix+I; source ai-shell.zsh and press Ctrl+G; run the quiz; compare Super+K output with docs/reference/keybindings.md",
+      "state": "blocked",
+      "evidence": "",
+      "notes": "Blocked on hardware access. Record each discrepancy as a fix to docs/reference/keybindings.md or the installer. Also confirm the Omarchy version (v3 vs v4) and the hardware items in docs/migration/bring-your-stuff.md."
+    },
+    {
+      "id": "F11",
+      "priority": 11,
+      "behavior": "Retired Copilot files removed (scripts/copilot_alias.sh, docs/reference/copilot-alias.md)",
+      "verification": "test ! -e scripts/copilot_alias.sh && test ! -e docs/reference/copilot-alias.md",
+      "state": "blocked",
+      "evidence": "",
+      "notes": "Needs the owner to run rm; the agent's rm was denied. After removal, drop the two mentions in AGENTS.md and the --shell=bash comment in init.sh."
+    },
+    {
+      "id": "F12",
+      "priority": 12,
+      "behavior": "First commit and GitHub publish",
+      "verification": "git log --oneline shows the initial commit; remote exists; no secrets or personal files tracked (git ls-files | rg -i 'inventory|\\.env|hardware|HANDOFF' returns nothing)",
+      "state": "not_started",
+      "evidence": "",
+      "notes": "Wait for F10 results so the first public version is validated. Replace <you> in README.md clone URL. Needs the owner's go-ahead (outward-facing)."
+    }
+  ]
+}
