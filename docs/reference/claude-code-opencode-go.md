@@ -57,19 +57,26 @@ These estimates assume small requests. Claude Code sends large contexts, so expe
 faster than the table says. **Check the console's usage page after your first week and adjust.**
 Quality is a guess until you have used it: the published benchmark scores for these models are vendor-reported
 and nobody has published a head-to-head inside Claude Code. No model on this endpoint replaces a top Claude model
-for hard design work; that is what rung 3 of the ladder is for.
+for hard design work; that is what rung 2 of the ladder (your Anthropic account) is for.
 
 ## Fallback ladder: so you are never without AI
 
 Go down one rung whenever the previous one fails or runs out.
 
-1. **Another model's budget.** `ccgo-check` shows which models are at their limit (HTTP 429). Then run
-   `ccgo --model <id>` with a model that still has budget, or `export CCGO_SONNET=minimax-m3` and relaunch.
-2. **Pay-as-you-go top-up.** In the console, enable *Use balance* and keep a small credit balance. After
-   the limits are reached, Go falls back to the balance instead of blocking requests (per the Go docs).
-   This costs real money per token, so keep the balance small.
-3. **Your Anthropic account.** Plain `claude`. This is why `ccgo` does not touch your login.
-4. **If the plan itself is the problem** (caps hit weekly even with rung 1): Go Plus is $40 a month with
+**Default state (recommended): Extra Usage off.** Your cost is capped at the Go subscription price. When a limit
+is reached, Go requests stop until the window resets. The docs say requests are blocked; what `ccgo` then shows is
+unconfirmed (expect an error such as HTTP 429, which `ccgo-check` reports as `LIMIT`).
+
+1. **Another model.** `ccgo-check` shows which models are at their limit. Then run `ccgo --model <id>`, or
+   `export CCGO_SONNET=minimax-m3` and relaunch. This helps only if the budgets are separate per model, which the
+   Console does not confirm (see above).
+2. **Your Anthropic account.** Plain `claude`. This costs nothing extra on the Go side and is why `ccgo` does not
+   touch your login. It is the fallback that keeps cost risk at zero.
+3. **Optional: pay-as-you-go balance.** In the Console, add a small balance and turn on **Extra Usage**. After
+   the limits are reached, Go uses the balance instead of blocking requests. **Trade-off:** it keeps AI running,
+   but it costs real money per token. Keep auto-recharge off. The balance is then your maximum loss.
+   Turn this on only if limits stop you more than about once a week.
+4. **If the plan itself is the problem** (caps hit weekly even with the steps above): Go Plus is $40 a month with
    higher limits.
 
 ## Troubleshooting
