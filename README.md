@@ -41,6 +41,7 @@ python3 scripts/practice-omarchy-cli.py              # 10-question keybinding dr
 | `scripts/practice-omarchy-setup.sh` | Additive installer: backs up first, marked blocks, `--dry-run`, safe to re-run. |
 | `scripts/practice-omarchy-cli.py` | Keybinding quiz, 90+ questions, filter by section. |
 | `scripts/ai-shell.zsh` | The inline-AI widget. |
+| `scripts/ccgo.sh` | Optional: run Claude Code on an OpenCode Go subscription with per-model budgets and a fallback ladder. See [`docs/reference/claude-code-opencode-go.md`](docs/reference/claude-code-opencode-go.md). |
 | `scripts/mac-inventory.sh` | Lists your Homebrew tools with a hint for each. |
 | `scripts/check-drift.py` | Keeps the installer and `configs.md` identical. Run `./init.sh` for all checks. |
 | `docs/blog/omarchy-blog-post.md` | Write-up of the approach. |

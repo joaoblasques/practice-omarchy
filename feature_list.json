@@ -97,8 +97,8 @@
       "priority": 11,
       "behavior": "Retired Copilot files removed (scripts/copilot_alias.sh, docs/reference/copilot-alias.md)",
       "verification": "test ! -e scripts/copilot_alias.sh && test ! -e docs/reference/copilot-alias.md",
-      "state": "blocked",
-      "evidence": "",
+      "state": "passing",
+      "evidence": "2026-10-19: test ! -e on both retired files succeeds (owner deleted them); stale references removed from AGENTS.md and init.sh.",
       "notes": "Needs the owner to run rm; the agent's rm was denied. After removal, drop the two mentions in AGENTS.md and the --shell=bash comment in init.sh."
     },
     {
@@ -109,6 +109,15 @@
       "state": "not_started",
       "evidence": "",
       "notes": "Wait for F10 results so the first public version is validated. Replace <you> in README.md clone URL. Needs the owner's go-ahead (outward-facing)."
+    },
+    {
+      "id": "F13",
+      "priority": 13,
+      "behavior": "Claude Code on OpenCode Go (ccgo) with per-slot budgets and a documented fallback ladder; priority is never hitting limits or losing access",
+      "verification": "shellcheck --shell=bash -S warning scripts/ccgo.sh; zsh -n scripts/ccgo.sh; OPENCODE_GO_KEY=sk-fake bash -c 'source scripts/ccgo.sh; ccgo-check' prints HTTP 401 for all four models; with a REAL key `ccgo-check` prints ok for all four and `ccgo` shows the OpenCode URL in /status",
+      "state": "in_progress",
+      "evidence": "2026-10-19: lint + syntax clean; no-key path exits 1 with a clear message; fake key returns 401 (route exists), and without x-opencode-session the endpoint returns 400 MissingSessionID (fixed in ccgo-check). NOT tested: a real key, a real Claude Code session, Omarchy.",
+      "notes": "Slot mapping chosen from Go's published request budgets (docs read 2026-10-19). Real-key test is part of F10. Docs: docs/reference/claude-code-opencode-go.md."
     }
   ]
 }

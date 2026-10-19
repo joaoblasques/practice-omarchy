@@ -20,15 +20,16 @@ docs/
   reference/keybindings.md        verified cheat sheet; the quiz is generated from it
   reference/configs.md            what the installer adds; blocks mirror the installer
   reference/ai-shell.md           inline-AI notes and alternatives
+  reference/claude-code-opencode-go.md  Claude Code on OpenCode Go: budgets, fallback ladder
   blog/omarchy-blog-post.md       publishable blog post
   hardware/                       local-only vendor PDF (gitignored, never edit)
 scripts/
   practice-omarchy-setup.sh       additive installer (--dry-run, backups, marked blocks)
   practice-omarchy-cli.py         quiz; questions parsed from keybindings.md
   ai-shell.zsh                    Ctrl+G natural language -> command widget
+  ccgo.sh                         sourced; ccgo / ccgo-check run Claude Code on OpenCode Go
   mac-inventory.sh                read-only brew inventory with Omarchy hints
   check-drift.py                  fails if installer heredocs and configs.md blocks differ
-  copilot_alias.sh                RETIRED, delete (docs/reference/copilot-alias.md too)
 ```
 
 ## Session workflow
