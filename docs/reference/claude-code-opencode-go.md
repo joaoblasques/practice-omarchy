@@ -48,6 +48,11 @@ Two decisions follow from the "never hit a limit" goal:
   (67.7%, vendor-reported), but its allowance is about 810 requests a month. Use it by hand for one hard problem:
   `ccgo --model qwen3.8-max`.
 
+**Unconfirmed:** the Go docs describe per-model limits, but the Console's Go tab (checked 2026-10-19) shows one
+combined set of bars: rolling, weekly, monthly. It does not show a budget for each model. Treat the
+"separate budgets" idea as a hope, not a fact. Spreading models costs nothing, so the mapping stays. Watch the
+combined bars, and use the Logs tab to see which model each request used.
+
 These estimates assume small requests. Claude Code sends large contexts, so expect to burn through budgets
 faster than the table says. **Check the console's usage page after your first week and adjust.**
 Quality is a guess until you have used it: the published benchmark scores for these models are vendor-reported
