@@ -122,11 +122,11 @@
     {
       "id": "F14",
       "priority": 14,
-      "behavior": "ThinkPad procedures 1 (AI via OpenCode) and 2 (Claude Code via ccgo) written in ASD-STE100 style and followed successfully on the ThinkPad",
-      "verification": "docs/migration/thinkpad-setup.md exists; no procedural sentence over 20 words; on the ThinkPad: Procedure 1 result 'model replies', Procedure 2 ccgo-check shows four 'ok' lines and /status shows opencode.ai",
+      "behavior": "ThinkPad Procedure 1 (Claude Code on OpenCode Go via ccgo, no OpenCode CLI) written in ASD-STE100 style and followed successfully on the ThinkPad",
+      "verification": "docs/migration/thinkpad-setup.md exists; no procedural sentence over 20 words; on the ThinkPad: ccgo-check shows four 'ok' lines, /status shows opencode.ai, the model replies",
       "state": "in_progress",
-      "evidence": "2026-10-19: doc written and pushed to private repo joaoblasques/practice-omarchy; sentence-length check: 0 steps over 20 words. NOT yet followed on the ThinkPad.",
-      "notes": "Owner asked for ASD-STE100 in all procedures. Procedures 3-5 (installer, bring-your-stuff, practice) still to write, after 1 and 2 succeed. Unverified assumptions: `opencode` stub exists, `omarchy pkg add github-cli` works, Claude Code asks to accept the API key on first run."
+      "evidence": "2026-10-19: doc rewritten to remove the OpenCode CLI step (owner constraint); sentence-length check: 0 steps over 20 words; pushed to private repo. NOT yet followed on the ThinkPad.",
+      "notes": "Owner constraint: never use the OpenCode CLI or harness. Procedures 2-4 (installer, bring-your-stuff, practice) follow after Procedure 1 works. Unverified: omarchy pkg add github-cli, claude stub downloads on `claude --version`, Claude Code asks to accept the API key."
     }
   ]
 }

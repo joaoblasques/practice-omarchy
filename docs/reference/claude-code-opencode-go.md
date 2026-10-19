@@ -64,10 +64,7 @@ Go down one rung whenever the previous one fails or runs out.
    the limits are reached, Go falls back to the balance instead of blocking requests (per the Go docs).
    This costs real money per token, so keep the balance small.
 3. **Your Anthropic account.** Plain `claude`. This is why `ccgo` does not touch your login.
-4. **OpenCode with a free Go model.** `c` (OpenCode). The Go docs say you can keep using the free models after
-   hitting a limit. Those free models are not on the Anthropic endpoint, so Claude Code cannot use them;
-   OpenCode can. Models marked "limited time" may disappear.
-5. **If the plan itself is the problem** (caps hit weekly even with rung 1): Go Plus is $40 a month with
+4. **If the plan itself is the problem** (caps hit weekly even with rung 1): Go Plus is $40 a month with
    higher limits.
 
 ## Troubleshooting
