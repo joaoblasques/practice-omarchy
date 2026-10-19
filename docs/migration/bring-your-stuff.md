@@ -1,39 +1,103 @@
 # Bring your stuff over
 
-A checklist of what lives only on your Mac. Never commit any of it to this repo or any public one.
+These steps move secrets, dotfiles, apps, and hardware settings from your Mac to Omarchy. Do them on the ThinkPad.
 
-## Secrets and identity
+**Prerequisites:** the ThinkPad runs Omarchy v4. The Mac and ThinkPad share a network. 1Password, Ghostty, and Foot are installed.
 
-- [ ] **SSH keys.** Simplest and safest: generate a new key on the new machine
-      (`ssh-keygen -t ed25519`), add it to GitHub/servers, and retire the old key when ready.
-      If you must copy the old one, move it over an encrypted channel and run `chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_*`.
-- [ ] **GPG / signing keys.** Export from the Mac (`gpg --export-secret-keys`), import on Omarchy, delete the export file.
-- [ ] **Git identity.** `git config --global user.name` / `user.email` (copy from `~/.gitconfig`; check for macOS-only entries such as `osxkeychain`).
-- [ ] **Password manager.** 1Password ships with Omarchy (`Super + Shift + /`). Sign in there before opening other apps.
-- [ ] **API keys and `.env` files.** Recreate from the password manager rather than copying files around.
+**WARNING:** Never commit secrets to a public repo. Use a private dotfiles repo or `scp`.
 
-## Dotfiles
+**NOTE:** Omarchy v4 ships bash by default. zsh is opt-in. Steps below assume bash.
 
-- [ ] Put your shell, git and editor config in a private dotfiles repo (the manual suggests GNU Stow).
-- [ ] Skip files Omarchy owns (Hyprland, Ghostty, tmux base config). See [configs.md](../reference/configs.md).
-- [ ] Review macOS-only lines in `~/.zshrc`: `brew`, `pbcopy`/`pbpaste` (use `wl-copy`/`wl-paste`), `open` (use `xdg-open`), `/opt/homebrew` paths.
+**NOTE:** See the Omarchy manual for hardware items ([Hardware authentication](https://omarchy.org/manual/hardware-authentication/), [Keyboard, mouse, trackpad](https://omarchy.org/manual/keyboard-mouse-trackpad/), [System sleep](https://omarchy.org/manual/system-sleep/)).
 
-## Data and apps
+## Part A: Secrets and identity
 
-- [ ] Browser: sign in to sync bookmarks and extensions. Log in before using web-app shortcuts.
-- [ ] Obsidian vault: copy the folder; Obsidian ships with Omarchy (`Super + Shift + O`).
-- [ ] Projects: clone from git instead of copying; copy only unpushed work.
-- [ ] Fonts you rely on beyond JetBrainsMono Nerd Font (Omarchy menu > Install > Style > Font).
+1. Open Foot (`Super + Return`).
+2. Type `ssh-keygen -t ed25519` and press `Enter`.
+3. Press `Enter` to accept the default path.
+4. Press `Enter` twice for an empty passphrase.
 
-## Hardware: ThinkPad
+   **Result:** the terminal prints the key fingerprint.
 
-I have not read the v4 hardware pages. Check these on the machine and in the manual
-([Hardware authentication](https://omarchy.org/manual/hardware-authentication/),
-[Keyboard, mouse, trackpad](https://omarchy.org/manual/keyboard-mouse-trackpad/),
-[System sleep](https://omarchy.org/manual/system-sleep/)):
+5. Type `cat ~/.ssh/id_ed25519.pub | wl-copy` and press `Enter`.
+6. Open GitHub at **Settings > SSH and GPG keys > New SSH key**.
+7. Paste the public key. Save.
 
-- [ ] Fingerprint reader (Omarchy menu > Setup > Security).
-- [ ] TrackPoint and trackpad speed, natural scrolling (`~/.config/hypr/input.lua`).
-- [ ] Suspend and hibernate behaviour.
-- [ ] Display scaling: Omarchy assumes a high-resolution screen (Setup > Monitors).
-- [ ] External or split keyboard layout, if you use one.
+8. On the Mac, type `gpg --export-secret-keys --armor you@example.com > gpg.asc` and press `Enter`.
+9. Copy `gpg.asc` to the ThinkPad with `scp`.
+10. On the ThinkPad, type `gpg --import gpg.asc` and press `Enter`.
+11. Type `rm gpg.asc` and press `Enter`.
+
+    **Result:** `gpg --list-secret-keys` shows the imported key.
+
+12. On the Mac, note `git config --global user.name` and `user.email`.
+13. On the ThinkPad, type `git config --global user.name "Your Name"` and press `Enter`.
+14. Type `git config --global user.email "you@example.com"` and press `Enter`.
+
+15. Press `Super + Shift + /`. The 1Password app opens.
+16. Sign in to 1Password.
+17. Enable biometric unlock.
+
+    **Result:** 1Password fills credentials on the next login.
+
+18. Open 1Password. Find each API key.
+
+    **WARNING:** Do not copy raw `.env` files from the Mac. Recreate them on the ThinkPad.
+
+19. Recreate each `.env` file on the ThinkPad. Add the matching key.
+20. Type `chmod 600 ~/.env` for each file.
+
+## Part B: Dotfiles
+
+21. On the Mac, type `gh repo create dotfiles --private --source=.` and press `Enter`.
+
+    **NOTE:** Skip files Omarchy owns. See [configs.md](../reference/configs.md).
+
+22. On the ThinkPad, type `gh repo clone user/dotfiles ~/.dotfiles` and press `Enter`.
+23. Stow each package with `stow <package>`.
+
+24. Open `~/.zshrc` in `nvim`.
+25. Delete lines starting with `brew`.
+26. Replace `pbcopy` and `pbpaste` with `wl-copy` and `wl-paste`.
+27. Replace `open` with `xdg-open`.
+28. Replace `/opt/homebrew` paths with `/usr`.
+
+## Part C: Data and apps
+
+29. Open Firefox or Chrome. Sign in. Wait for sync.
+
+30. Copy the Obsidian vault folder from the Mac to `~/Documents` with `scp`.
+31. Press `Super + Shift + O`. Obsidian opens.
+32. Point Obsidian at the vault folder.
+
+33. On the Mac, type `git status` in each project. Commit any unpushed work.
+34. On the ThinkPad, type `gh repo clone user/repo` for each project.
+
+35. Press `Super + Space`. The Omarchy menu opens.
+36. Click **Install > Style > Font**.
+37. Pick the font. Click **Install**.
+
+## Part D: Hardware
+
+38. Press `Super + Space`.
+39. Click **Setup > Security > Fingerprint**.
+40. Follow the prompts. Scan the same finger twice.
+
+    **Result:** `sudo` prompts for a fingerprint instead of a password.
+
+41. Open `~/.config/hypr/input.conf` in `nvim`.
+42. Set `natural_scroll = yes` for the touchpad.
+43. Adjust `sensitivity` to taste. Save the file.
+
+44. Press `Super + Space`.
+45. Click **Setup > Power**.
+46. Pick the lid-close action. Set the idle timeout.
+
+47. Press `Super + Space`.
+48. Click **Setup > Monitors**.
+49. Set the scale. Pick the orientation.
+
+50. Plug in the external keyboard.
+51. Press `Super + Space`.
+52. Click **Setup > Keyboard**.
+53. Pick the layout.

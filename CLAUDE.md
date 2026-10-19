@@ -31,19 +31,19 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 - On the ThinkPad: `ccgo-setup.sh` ran, `ccgo-check` shows `ok` for four models, `ccgo` works.
 - Go Console: Extra Usage is off, balance is $0, per-model budgets are unconfirmed (see
   `docs/reference/claude-code-opencode-go.md`).
-- `feature_list.json` is the task list. F14 passed. **F15 is in progress.**
+- `feature_list.json` is the task list. F14 and F15 passed.
+- F15: report at `~/Work/omarchy-validation-report.md` (no FAIL; 3 DIFFERENT fixed in `docs/reference/keybindings.md`,
+  `docs/migration/mac-map.md`, `docs/guide/exercise-guide.md`). Real installer run completed on the ThinkPad:
+  atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh-bin 2.33.0 installed via `omarchy pkg add` + `yay`;
+  `practice-omarchy:tmux` block appended to `~/.config/tmux/tmux.conf`; `practice-omarchy:bash` block appended to
+  `~/.bashrc`; `~/.tmux/plugins/tpm` cloned; tmux plugins `tpm`, `omerxx/tmux-sessionx`, `omerxx/tmux-floax` installed
+  at `~/.config/tmux/plugins/` (TMUX_PLUGIN_MANAGER_PATH). `shellcheck` and `zsh` are NOT installed on this ThinkPad;
+  `init.sh` did not run.
 
 ## Next tasks, in order
 
-1. **F15, validation.** Do `docs/migration/validate-on-omarchy.md` (read-only). Write the report to
-   `~/Work/omarchy-validation-report.md`. Then fix every DIFFERENT and FAIL item in the repo files
-   (`docs/reference/keybindings.md`, `docs/migration/mac-map.md`, `docs/reference/configs.md`, the installer and so on).
-   Keep `docs/reference/keybindings.md` in the `| Action | \`keys\` |` row format. Run `./init.sh` if `shellcheck`
-   and `zsh` exist. If they do not exist, tell the owner. Do not install them without asking.
-2. **Procedure 3, installer.** Follow `docs/migration/thinkpad-setup.md`. Run `--dry-run` first. Show the owner the
-   output. Run the real installer only after the owner says yes. The installer uses `sudo`.
-3. **Procedure 4, keys and files.** See `docs/migration/bring-your-stuff.md`. Write it as numbered ASD-STE100 steps.
-4. **Procedure 5, practice plan.** See `docs/guide/exercise-guide.md`.
+1. **Procedure 4, keys and files.** See `docs/migration/bring-your-stuff.md`. Write it as numbered ASD-STE100 steps.
+2. **Procedure 5, practice plan.** See `docs/guide/exercise-guide.md`.
 
 ## Differences from the Mac session
 
