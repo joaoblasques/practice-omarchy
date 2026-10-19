@@ -115,8 +115,8 @@
       "priority": 13,
       "behavior": "Claude Code on OpenCode Go (ccgo) with per-slot budgets and a documented fallback ladder; priority is never hitting limits or losing access",
       "verification": "shellcheck --shell=bash -S warning scripts/ccgo.sh; zsh -n scripts/ccgo.sh; OPENCODE_GO_KEY=sk-fake bash -c 'source scripts/ccgo.sh; ccgo-check' prints HTTP 401 for all four models; with a REAL key `ccgo-check` prints ok for all four and `ccgo` shows the OpenCode URL in /status",
-      "state": "in_progress",
-      "evidence": "2026-10-19: lint + syntax clean; no-key path exits 1 with a clear message; fake key returns 401 (route exists), and without x-opencode-session the endpoint returns 400 MissingSessionID (fixed in ccgo-check). NOT tested: a real key, a real Claude Code session, Omarchy.",
+      "state": "passing",
+      "evidence": "2026-10-19: lint + syntax clean; no-key path exits 1 with a clear message; fake key returns 401 (route exists), and without x-opencode-session the endpoint returns 400 MissingSessionID (fixed in ccgo-check). NOT tested: a real key, a real Claude Code session, Omarchy. 2026-10-19 ON THINKPAD: ccgo-setup.sh ran; ccgo-check showed ok for qwen3.8-flash, minimax-m3, qwen3.7-plus, claude-haiku-5-5 (owner photo IMG_1778); owner reports ccgo works. Found: first run stopped on an empty clipboard (fine). Not yet confirmed: Go usage page rises after use.",
       "notes": "Slot mapping chosen from Go's published request budgets (docs read 2026-10-19). Real-key test is part of F10. Docs: docs/reference/claude-code-opencode-go.md."
     },
     {
@@ -124,9 +124,18 @@
       "priority": 14,
       "behavior": "ThinkPad Procedure 1 (Claude Code on OpenCode Go via ccgo, no OpenCode CLI) written in ASD-STE100 style and followed successfully on the ThinkPad",
       "verification": "docs/migration/thinkpad-setup.md exists; no procedural sentence over 20 words; on the ThinkPad: ccgo-check shows four 'ok' lines, /status shows opencode.ai, the model replies",
-      "state": "in_progress",
-      "evidence": "2026-10-19: doc rewritten to remove the OpenCode CLI step (owner constraint); sentence-length check: 0 steps over 20 words; pushed to private repo. NOT yet followed on the ThinkPad. 2026-10-19: added scripts/ccgo-setup.sh (one-shot Parts C-F). Tested on a throwaway HOME: disables ANTHROPIC rc lines with backup, stops on settings.json without printing the value, saves key chmod 600, adds source line once, runs ccgo-check (fake key -> 401 path). ccgo-check now returns non-zero on any failure.",
+      "state": "passing",
+      "evidence": "2026-10-19: doc rewritten to remove the OpenCode CLI step (owner constraint); sentence-length check: 0 steps over 20 words; pushed to private repo. NOT yet followed on the ThinkPad. 2026-10-19: added scripts/ccgo-setup.sh (one-shot Parts C-F). Tested on a throwaway HOME: disables ANTHROPIC rc lines with backup, stops on settings.json without printing the value, saves key chmod 600, adds source line once, runs ccgo-check (fake key -> 401 path). ccgo-check now returns non-zero on any failure. 2026-10-19 ON THINKPAD: ccgo-setup.sh ran; ccgo-check showed ok for qwen3.8-flash, minimax-m3, qwen3.7-plus, claude-haiku-5-5 (owner photo IMG_1778); owner reports ccgo works. Found: first run stopped on an empty clipboard (fine). Not yet confirmed: Go usage page rises after use.",
       "notes": "Owner constraint: never use the OpenCode CLI or harness. Procedures 2-4 (installer, bring-your-stuff, practice) follow after Procedure 1 works. Unverified: omarchy pkg add github-cli, claude stub downloads on `claude --version`, Claude Code asks to accept the API key."
+    },
+    {
+      "id": "F15",
+      "priority": 15,
+      "behavior": "Validate the repo on the real ThinkPad with Claude Code (read-only) using docs/migration/validate-on-omarchy.md, then run the installer",
+      "verification": "~/Work/omarchy-validation-report.md exists with no unexplained FAIL; installer dry-run and real run end with 'done.'; atuin, tv, spf, sesh print versions",
+      "state": "in_progress",
+      "evidence": "",
+      "notes": "Replaces the hand-run part of F10. Report goes back via branch validation-report (docs/migration/reports/thinkpad-report.md). Known repo claims to test: default terminal Foot, tmux config path, tdl/tds/tdlm/tsl and c/cx/cy in bash, keybinding rows, mac-map rows."
     }
   ]
 }

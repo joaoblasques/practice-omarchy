@@ -129,8 +129,57 @@ Then do Part D.
 
 ---
 
+## Procedure 2: Check the setup with Claude Code
+
+Time: about 15 minutes. Do Procedure 1 first. Claude Code only reads. It does not change files.
+
+**NOTE:** The task file is [validate-on-omarchy.md](validate-on-omarchy.md). Claude Code runs the checks.
+
+1. Press `Super + Return`. A terminal opens.
+2. Type `cd ~/Work/practice-omarchy && git pull` and press `Enter`.
+3. Type `ccgo` and press `Enter`.
+4. Type this sentence. Press `Enter`.
+
+   ```text
+   Read docs/migration/validate-on-omarchy.md and do every check. Follow the rules in that file.
+   ```
+5. When Claude Code asks to run a command, read the command. Select **Yes** only for read-only commands.
+6. Select **No** for any command that uses `sudo`, `rm`, or `pacman`.
+7. Wait until Claude Code writes the report.
+
+   **Result:** Claude Code says the report is at `~/Work/omarchy-validation-report.md`.
+8. Type `Show me the DIFFERENT and FAIL items.` Press `Enter`.
+9. Read the answer. Send me the text of each DIFFERENT and FAIL item.
+
+   **NOTE:** To send me the report, type `Commit the report on branch validation-report and push it.` Press `Enter`. Tell me when it is done.
+
+## Procedure 3: Run the installer
+
+Time: about 15 minutes. Do Procedure 2 first. Fix the DIFFERENT and FAIL items before this procedure.
+
+**CAUTION:** The installer adds packages. It does not overwrite your files. It saves a backup of each file that it edits.
+
+1. Press `Super + Return`. A terminal opens.
+2. Type `cd ~/Work/practice-omarchy && git pull` and press `Enter`.
+3. Type `bash scripts/practice-omarchy-setup.sh --dry-run` and press `Enter`.
+
+   **Result:** Each line starts with `[dry-run]`. No line shows `ERROR`.
+4. Read the lines. Make sure you accept each package and each file change.
+5. Type `bash scripts/practice-omarchy-setup.sh` and press `Enter`.
+6. If the terminal asks for your password, type it. Press `Enter`.
+7. Wait until the terminal shows `done.`
+8. Press `Super + Alt + Return`. A terminal opens in tmux.
+9. Press `Ctrl + Space`. Then press `Shift + I`.
+
+   **Result:** tmux shows that it installs the plugins.
+10. Open a new terminal. Press `Super + Return`.
+11. Type `atuin --version && tv --version && spf --version && sesh --version` and press `Enter`.
+
+    **Result:** The terminal shows four version lines.
+
+If a step fails, send me the step number and the exact text on the screen.
+
 ## Planned procedures
 
-- Procedure 2: Run the installer. First use `--dry-run`.
-- Procedure 3: Bring your keys and files. See [bring-your-stuff.md](bring-your-stuff.md).
-- Procedure 4: Start the [four-week practice plan](../guide/exercise-guide.md).
+- Procedure 4: Bring your keys and files. See [bring-your-stuff.md](bring-your-stuff.md).
+- Procedure 5: Start the [four-week practice plan](../guide/exercise-guide.md).
