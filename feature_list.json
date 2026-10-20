@@ -145,6 +145,15 @@
       "state": "not_started",
       "evidence": "",
       "notes": "Pairs with the F15 footnote ('ai-shell.zsh requires zsh'); not yet followed on the ThinkPad. Built 2026-10-19 in the same style as docs/migration/bring-your-stuff.md; committed 2026-10-20."
+    },
+    {
+      "id": "F17",
+      "priority": 17,
+      "behavior": "Four-week practice plan rewritten from bullet form into numbered ASD-STE100 procedure steps; one action per step; WARNING/NOTE blocks for the no-mouse, bash-default, and two-week-judgement rules; per-day Result lines and per-week Done-when checklists; progress task list at the bottom; cross-linked with Procedure 6 for Week 4 Day 4",
+      "verification": "test -f docs/guide/exercise-guide.md; four sections titled 'Week 1', 'Week 2', 'Week 3', 'Week 4'; each week has seven 'Day N' procedures (28 total); each Day procedure has numbered steps with one action per step; WARNING block for the no-mouse rule present; NOTE blocks for the bash-default and two-week-judgement rules; per-week 'Done when — Week N' checklist present; per-day 'Result:' lines present where checks apply; ends with a 28-item markdown task list; no procedural sentence over 20 words (manual audit recorded in evidence); install-zsh.md link to 'Week 4, Day 4' still resolves",
+      "state": "passing",
+      "evidence": "2026-10-20 rewrite verified. Sentence-length audit: 0 sentences over 20 words. Structural audit: 4 weeks (1-4), 28 days (7/week), 2 WARNING blocks, 6 NOTE blocks, 30 Result lines, 4 Done when sections (1-4), 28 checklist items, 127 numbered procedural steps, 4 internal links all resolve. Cross-reference from docs/migration/install-zsh.md (line 3: 'Week 4, Day 4') still points to a procedure that exists in the new doc. F15 Super+Q fix preserved in Week 1, Day 5 NOTE. Bash-default + 2-week-judgement rules added as top-of-doc NOTE blocks.",
+      "notes": "Replaces the bullet-form plan in place since 2026-10-19. Preserves Day numbering (install-zsh.md references 'Week 4, Day 4'). Task-style drills are recorded as per-day Result lines."
     }
   ]
 }

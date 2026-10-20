@@ -31,7 +31,7 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 - On the ThinkPad: `ccgo-setup.sh` ran, `ccgo-check` shows `ok` for four models, `ccgo` works.
 - Go Console: Extra Usage is off, balance is $0, per-model budgets are unconfirmed (see
   `docs/reference/claude-code-opencode-go.md`).
-- `feature_list.json` is the task list. Passing: F01-F09, F11, F13-F15. Blocked: F10 (real ThinkPad
+- `feature_list.json` is the task list. Passing: F01-F09, F11, F13-F15, F17. Blocked: F10 (real ThinkPad
   time). Not started: F12 (first public commit), F16 (install-zsh procedure doc only, not yet
   followed on the ThinkPad).
 - F15: report at `~/Work/omarchy-validation-report.md` (no FAIL; 3 DIFFERENT fixed in `docs/reference/keybindings.md`,
@@ -44,14 +44,14 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   Procedure 4/keys-and-files = `docs/migration/bring-your-stuff.md` was also completed in commit `134fee6`.
 - F16 added today (`docs/migration/install-zsh.md`): the zsh install + chsh + `practice-omarchy-setup --shell zsh`
   procedure for Week 4 / Ctrl+G widget. Document only — not yet followed on the ThinkPad.
+- F17 added today (`docs/guide/exercise-guide.md`): four-week plan rewritten as numbered ASD-STE100 procedure
+  steps. 28 days, 127 numbered steps, 0 sentences over 20 words.
 
 ## Next tasks, in order
 
-1. **Procedure 5, practice plan.** Rewrite `docs/guide/exercise-guide.md` as numbered ASD-STE100 steps.
-   Pulls from the F07 four-week plan; turns drills into runnable task steps.
-2. **Procedure 6, install zsh (F16).** Owner follows `docs/migration/install-zsh.md` on the ThinkPad, then
+1. **Procedure 6, install zsh (F16).** Owner follows `docs/migration/install-zsh.md` on the ThinkPad, then
    captures evidence and marks F16 passing.
-3. **F12 publish.** First commit on `main` and remote publish, after F10 / F16 results land (outward-facing:
+2. **F12 publish.** First commit on `main` and remote publish, after F10 / F16 results land (outward-facing:
    ask before push).
 
 ## Differences from the Mac session
