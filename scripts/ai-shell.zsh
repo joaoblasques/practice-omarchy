@@ -3,14 +3,20 @@
 # until you press Enter. Source from ~/.zshrc:  source /path/to/scripts/ai-shell.zsh
 #
 # Backend: any CLI that reads a prompt on stdin and prints the answer on stdout.
-# Default is Claude Code in print mode (no tools, no session saved). Examples:
+# Default uses the `ccgo` shell function (Claude Code on OpenCode Go) when defined;
+# otherwise uses bare `claude`. Examples of override:
 #   export AI_SHELL_CMD='opencode run'     export AI_SHELL_CMD='aichat'
 # ponytail: Ctrl+G is a blocking call (Haiku via claude -p is a couple of seconds).
 # ponytail: no "explain" or "fix last command" widget; add when you miss them.
 
 # --setting-sources project skips user hooks/plugins: ~3s instead of ~10s. Don't use --bare:
 # it ignores subscription login and needs an API key.
-: "${AI_SHELL_CMD:=claude -p --model haiku --tools '' --no-session-persistence --setting-sources project --strict-mcp-config --disable-slash-commands}"
+_ai_shell_args=(--model haiku --tools '' --no-session-persistence --setting-sources project --strict-mcp-config --disable-slash-commands)
+if (( ${+functions[ccgo]} )); then
+  : "${AI_SHELL_CMD:=ccgo -p ${_ai_shell_args[*]}}"
+else
+  : "${AI_SHELL_CMD:=claude -p ${_ai_shell_args[*]}}"
+fi
 
 # Pure function so it can be tested without a line editor: ai-shell-suggest "<request>"
 ai-shell-suggest() {

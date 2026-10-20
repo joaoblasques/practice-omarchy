@@ -15,7 +15,7 @@
       "id": "F02",
       "priority": 2,
       "behavior": "Inline AI (Ctrl+G) replaces the retired gh-copilot alias",
-      "verification": "zsh -n scripts/ai-shell.zsh && zsh -c 'source scripts/ai-shell.zsh; ai-shell-suggest \"list hidden files\"' (needs a working claude login)",
+      "verification": "zsh -n scripts/ai-shell.zsh; with ccgo.sh sourced first (so the `ccgo` shell function is defined), `zsh -c 'source ~/.zshrc; source scripts/ai-shell.zsh; ai-shell-suggest \"list hidden files\"'` returns a single command line (e.g., `ls -d .*` or `find . -name '.*' -type f`).",
       "state": "passing",
       "evidence": "2026-10-19: suggest fn returned 'find . -type f -size +100M -exec ls -lh {} +' for a size query, 4.1s; zsh -n clean. ZLE widget/Ctrl+G NOT tested interactively (no TTY). Old copilot_alias.sh + copilot-alias.md still exist: owner must delete (rm was denied).",
       "notes": "Docs: docs/reference/ai-shell.md. Re-test Ctrl+G on the ThinkPad."
