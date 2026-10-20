@@ -1,10 +1,10 @@
 # Install zsh and switch your login shell
 
-Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches Week 4, Day 4 (the `Ctrl+G` inline AI widget is zsh-only). Run on the ThinkPad. Bash stays the default everywhere else; the installer is additive.
+Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches Week 4, Day 4. The `Ctrl+G` widget is zsh-only. Run on the ThinkPad. Bash stays the default everywhere else; the installer is additive.
 
 **Prerequisites:** the ThinkPad runs Omarchy v4. The repo is at `~/Work/practice-omarchy`. Your account is `jonas`. `ccgo` works.
 
-**WARNING:** `chsh` changes your login shell. After step 5 you must sign in again or run `exec zsh` to take effect. The Mac habit keys (`pbcopy`, `brew`, `/opt/homebrew`) do not exist on Omarchy and the installer does not remove them from your existing `~/.zshrc`.
+**WARNING:** `chsh` changes your login shell. After step 5 you must sign in again or run `exec zsh` to take effect. The Mac habit keys (`pbcopy`, `brew`, `/opt/homebrew`) do not exist on Omarchy. The installer does not remove them from your existing `~/.zshrc`.
 
 **NOTE:** This procedure only adds. Your `~/.bashrc` and Omarchy's bash setup stay untouched. To go back to bash, repeat step 4 with `/usr/bin/bash`.
 
