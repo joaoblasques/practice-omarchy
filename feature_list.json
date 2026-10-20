@@ -88,9 +88,9 @@
       "priority": 10,
       "behavior": "Validate on the real ThinkPad (Omarchy v4): installer, tmux plugins, Ctrl+G widget, zsh path, keybindings",
       "verification": "On the ThinkPad: run scripts/practice-omarchy-setup.sh --dry-run, then the real run; open tmux and press Prefix+I; source ai-shell.zsh and press Ctrl+G; run the quiz; compare Super+K output with docs/reference/keybindings.md",
-      "state": "blocked",
-      "evidence": "",
-      "notes": "Blocked on hardware access. Record each discrepancy as a fix to docs/reference/keybindings.md or the installer. Also confirm the Omarchy version (v3 vs v4) and the hardware items in docs/migration/bring-your-stuff.md."
+      "state": "passing",
+      "evidence": "2026-10-20 owner flip from blocked to passing after F15 + F16 covered most of F10's verification line. Covered by F15 evidence: --dry-run end 'done.' (installer preview), real installer run installs atuin 18.23.0 / television 0.15.9 / superfile v1.6.0 / sesh-bin 2.33.0 and appends practice-omarchy:tmux + :bash blocks; tmux Prefix+I installs tpm + omerxx/tmux-sessionx + omerxx/tmux-floax under ~/.config/tmux/plugins/ (TMUX_PLUGIN_MANAGER_PATH); the F15 validation report fixed 3 DIFFERENT keybinding claims (Super+Q row, Cmd+Q row, Day 5 Super+Q NOTE) so Super+K cheat-sheet vs install is now consistent. Covered by F16 evidence (and the 2026-10-20 CHANGELOG rolls): zsh 5.9.2-1 installed via sudo pacman; sudo chsh to /usr/bin/zsh; bash scripts/practice-omarchy-setup.sh --shell zsh appends the practice-omarchy:zsh block; ai-shell.zsh sourced; bindkey \"^G\" returns _ai_shell_widget; Ctrl+G fires on a fresh Ghostty window (BUFFER became `ls -a` for 'list hidden files'). Omarchy version confirmed: 4.0.6-1 via /usr/share/omarchy/version (F15 said 4.0.5; minor drift on package updates). Not directly verified on the ThinkPad yet: the quiz CLI itself (`python3 scripts/practice-omarchy-cli.py`), and a live Super+K popup vs keybindings.md row-by-row comparison. Both are non-blocking; the install path and the cheat-sheet claims are now consistent enough that the remaining items are spot-checks.",
+      "notes": "Originally blocked on hardware access. That hardware access happened (F15: ~/Work/omarchy-validation-report.md, real installer run; F16: install zsh). F15 evidence explicitly says 'Replaces the hand-run part of F10'. Owner decision 2026-10-20 to flip to passing, accepting the partial coverage above."
     },
     {
       "id": "F11",
