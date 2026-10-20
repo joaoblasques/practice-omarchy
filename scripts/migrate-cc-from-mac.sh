@@ -31,8 +31,9 @@ say "WARNING: only ~/.claude/commands and ~/.claude/skills are portable. Skippin
 
 src_cmds="$LOCAL_HOME/.claude/commands"
 src_skills="$LOCAL_HOME/.claude/skills"
-src_cmd_count=$(find "$src_cmds" -type f -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
-src_skill_count=$(find "$src_skills" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | wc -l | tr -d ' ')
+# find -L: scp -r copies symlink targets, so count them too or the remote count never matches.
+src_cmd_count=$(find -L "$src_cmds" -type f -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
+src_skill_count=$(find -L "$src_skills" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | wc -l | tr -d ' ')
 say "Source counts: commands=$src_cmd_count, skills=$src_skill_count"
 
 ssh "$HOST" 'mkdir -p ~/.claude/commands ~/.claude/skills'

@@ -84,3 +84,17 @@ When the operator opens this repo on macOS and identifies themselves as on Mac, 
 `docs/from-mac.md` and walk them through the macOS-side checklist. Do not read it on a
 ThinkPad session. The full procedure lives at `docs/reference/claude-code-migrate.md`; the
 handoff file is the Mac-side subset the user can read at a glance.
+
+## ThinkPad handoff trigger
+
+When the owner says "I'm in the thinkpad", give these instructions. Do not add more.
+
+On the ThinkPad:
+1. Run `git pull --rebase --autostash` in the repo.
+2. Open `docs/migration/ssh-from-mac.md` and follow it, or tell the ThinkPad Claude session to follow it.
+
+What the procedure does:
+- Part A: installs Tailscale from `Install > Service > Tailscale` and connects it.
+- Part B: turns on SSH from `Setup > Security > SSHD`, then checks that `sshd` is active.
+- Part C: adds the Mac public key to `~/.ssh/authorized_keys`.
+- Parts D and E: report the ThinkPad name and user to the owner, and record the result in F19 evidence.
