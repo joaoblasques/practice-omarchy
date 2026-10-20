@@ -144,7 +144,7 @@
       "verification": "test -f docs/migration/install-zsh.md; no procedural sentence over 20 words (manual audit recorded in evidence); on the ThinkPad with `jonas` as the user: `sudo pacman -S --noconfirm zsh` installs zsh; `chsh -s /usr/bin/zsh jonas` exits 0; `bash ~/Work/practice-omarchy/scripts/practice-omarchy-setup.sh --shell zsh` appends the practice-omarchy:zsh block to ~/.zshrc; exec zsh replaces the shell; Ctrl+G opens the ai-shell widget; bash unchanged (`exec bash` works, ~/.bashrc untouched)",
       "state": "in_progress",
       "evidence": "",
-      "notes": "Pairs with the F15 footnote ('ai-shell.zsh requires zsh'); not yet followed on the ThinkPad. Built 2026-10-19 in the same style as docs/migration/bring-your-stuff.md; committed 2026-10-20. Agent preflight 2026-10-20: drift check pass; --shell zsh dry-run pass; throwaway-HOME real run appends zsh block, leaves bash block untouched."
+      "notes": "Pairs with the F15 footnote ('ai-shell.zsh requires zsh'); not yet followed on the ThinkPad. Built 2026-10-19 in the same style as docs/migration/bring-your-stuff.md; committed 2026-10-20. Agent preflight 2026-10-20: drift check pass; --shell zsh dry-run pass; throwaway-HOME real run appends zsh block, leaves bash block untouched. 2026-10-20 doc fixes (per owner decision): step 11 changed to `grep -n practice-omarchy ~/.zshrc`; new step 12 sources scripts/ai-shell.zsh so step 14 (Ctrl+G widget) fires; failure-table row 'Step 12 still shows bash' updated to 'Step 13'. Procedure now has 15 steps. Ready for the on-ThinkPad run."
     },
     {
       "id": "F17",

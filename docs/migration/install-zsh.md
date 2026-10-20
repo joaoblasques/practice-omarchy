@@ -38,19 +38,23 @@ Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches 
 
     **Result:** the installer prints `ok: appended block 'zsh' to /home/jonas/.zshrc`. If the block already exists, it prints `skip: block 'zsh' already in /home/jonas/.zshrc`.
 
-11. Type `tail -5 ~/.zshrc` and press `Enter`.
+11. Type `grep -n practice-omarchy ~/.zshrc` and press `Enter`.
 
-    **Result:** the last lines show `# >>> practice-omarchy:zsh >>>` and `# <<< practice-omarchy:zsh <<<`.
+    **Result:** the output lists two lines: `# >>> practice-omarchy:zsh >>>` and `# <<< practice-omarchy:zsh <<<`, with their line numbers.
 
-12. Type `exec zsh` and press `Enter`.
+12. Type `printf 'source ~/Work/practice-omarchy/scripts/ai-shell.zsh\n' >> ~/.zshrc` and press `Enter`.
+
+    **Result:** `printf` exits 0 and prints nothing.
+
+13. Type `exec zsh` and press `Enter`.
 
     **Result:** the same shell is now zsh. The prompt may change. `Ctrl + R` now uses `atuin`.
 
-13. Press `Ctrl + G`. The status line shows `ai-shell ready`. Type `list hidden files` and press `Enter`.
+14. Press `Ctrl + G`. The status line shows `ai-shell ready`. Type `list hidden files` and press `Enter`.
 
     **Result:** the widget inserts a command, often `find . -name '.*' -type f`.
 
-14. Type `echo $SHELL` and press `Enter`.
+15. Type `echo $SHELL` and press `Enter`.
 
     **Result:** the terminal prints `/usr/bin/zsh`.
 
@@ -62,7 +66,7 @@ Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches 
 | `chsh: user 'jonas' does not exist` | wrong user name | Run `whoami`, use that name in step 4. |
 | Step 10 prints `ERROR: --shell must be bash or zsh` | typo | Re-run step 10 with `--shell zsh` (lowercase). |
 | Step 11 shows no `practice-omarchy:zsh` block | the installer's bash branch ran by mistake | Re-run step 10 with `--shell zsh` explicitly. |
-| Step 12 still shows bash | the parent shell cached bash | Close the terminal and start a fresh one. |
+| Step 13 still shows bash | the parent shell cached bash | Close the terminal and start a fresh one. |
 | `Ctrl + G` does nothing | `ai-shell.zsh` not sourced | Check `~/.zshrc` for `source ~/Work/practice-omarchy/scripts/ai-shell.zsh`. Add it if missing. |
 
 ## To go back to bash
