@@ -154,6 +154,15 @@
       "state": "passing",
       "evidence": "2026-10-20 rewrite verified. Sentence-length audit: 0 sentences over 20 words. Structural audit: 4 weeks (1-4), 28 days (7/week), 2 WARNING blocks, 6 NOTE blocks, 30 Result lines, 4 Done when sections (1-4), 28 checklist items, 127 numbered procedural steps, 4 internal links all resolve. Cross-reference from docs/migration/install-zsh.md (line 3: 'Week 4, Day 4') still points to a procedure that exists in the new doc. F15 Super+Q fix preserved in Week 1, Day 5 NOTE. Bash-default + 2-week-judgement rules added as top-of-doc NOTE blocks.",
       "notes": "Replaces the bullet-form plan in place since 2026-10-19. Preserves Day numbering (install-zsh.md references 'Week 4, Day 4'). Task-style drills are recorded as per-day Result lines."
+    },
+    {
+      "id": "F18",
+      "priority": 18,
+      "behavior": "Extend docs/guide/exercise-guide.md with ASD-STE100 numbered procedures for Omarchy v4 features sourced from the bundled 50-features catalog (FEAT-01..FEAT-50), gated on manual verification (https://omarchy.org/manual/hotkeys/ and related) AND on this ThinkPad's hyprctl binds. Each added procedure cites the manual URL and read-date in its commit message; each keybinding is confirmed in BOTH sources. Spec contents that disagree with the v4 manual are dropped, not 'corrected'.",
+      "verification": "docs/guide/exercise-guide.md grows in increments; every added step has a manual URL cited in the commit message and a hyprctl-verified keybinding recorded in F18 evidence; the 28-day original plan + the install-zsh.md cross-reference to 'Week 4, Day 4' is unchanged; check-drift.py still passes after each change; bundle files are NOT committed to the repo; one procedure = one commit (per feature or per group of related features).",
+      "state": "in_progress",
+      "evidence": "2026-10-20 batch 1: toggle + grouping features from the bundle, cross-checked against https://omarchy.org/manual/hotkeys/ (read 2026-10-20) AND `hyprctl binds` on Omarchy 4.0.6. Verified features added to plan: FEAT-39 (Super+Shift+Space top bar), FEAT-40 (Super+Shift+Backspace window gaps), FEAT-38 (Super+Ctrl+N nightlight), FEAT-37 (Super+Ctrl+O toggle menu), FEAT-14 (Super+G window grouping). Skipped due to spec-vs-v4 mismatch: FEAT-02/03 (v3 launcher split; v4 has Super+Space as unified Omarchy menu, Super+Alt+Space as App grid), FEAT-13 (spec swapped toggle/send-to-scratchpad). Bundle files remain in /tmp/omarchy-bundle-2026-10-20/, not in repo.",
+      "notes": "Started 2026-10-20 after the user provided the omarchy-agent-spec-bundle.zip. Scope is the 12-15 features from the spec worth adding to the practice plan; verified one at a time against omarchy.org/manual/ + hyprctl on this machine. Spec content not committed. F18 stays in_progress across batches; promoted to passing after the listed candidates are done."
     }
   ]
 }

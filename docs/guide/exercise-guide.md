@@ -108,12 +108,42 @@ To drill one area, add `--section <name>` (for example `--section tmux`).
 
    **Result:** the desktop background, bar, and terminal palette change.
 
+### Day 8 — Toggles
+
+**Goal:** change Omarchy's appearance and runtime state with the keyboard, with no menu clicks.
+
+1. Press `Super + Shift + Space`. The top bar hides.
+2. Press `Super + Shift + Space` again. The top bar reappears.
+
+   **Result:** the top bar toggles on and off with one chord.
+
+3. Press `Super + Shift + Backspace`. The window gaps shrink to zero.
+4. Press `Super + Shift + Backspace` again. The window gaps return.
+
+   **Result:** you can remove the visual gaps between windows without the menu.
+
+5. Press `Super + Ctrl + N`. The screen tints warmer.
+6. Press `Super + Ctrl + N` again. The screen tint returns to neutral.
+
+   **Result:** nightlight toggles on and off with one chord.
+
+7. Press `Super + Ctrl + O`. The toggle menu opens.
+8. Press `Escape`. The toggle menu closes.
+
+   **Result:** the toggle menu shows the same toggles and a few more.
+
+9. Press `Super + G` on a tiled window. The window joins a group.
+10. Press `Super + G` again. The window leaves the group.
+
+    **Result:** window grouping toggles with one chord.
+
 **Done when — Week 1:** verify each item:
 
 1. A terminal, a browser, and a notes app are open.
 2. Each app sits on a different workspace.
 3. You return to workspace 1 in under fifteen seconds.
 4. Hands stay on the keyboard during steps 1 to 3.
+5. Each Day 8 toggle changes state and stays in the new state.
 
 ---
 
@@ -359,6 +389,7 @@ Copy this list into a private note and tick each box on the day.
 - [ ] Week 1, Day 5 — Close and float
 - [ ] Week 1, Day 6 — Screenshots and OCR
 - [ ] Week 1, Day 7 — Open the Omarchy menu and change theme
+- [ ] Week 1, Day 8 — Toggles
 - [ ] Week 2, Day 1 — Splits and focus
 - [ ] Week 2, Day 2 — Windows
 - [ ] Week 2, Day 3 — Sessions
