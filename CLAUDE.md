@@ -31,9 +31,8 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 - On the ThinkPad: `ccgo-setup.sh` ran, `ccgo-check` shows `ok` for four models, `ccgo` works.
 - Go Console: Extra Usage is off, balance is $0, per-model budgets are unconfirmed (see
   `docs/reference/claude-code-opencode-go.md`).
-- `feature_list.json` is the task list. Passing: F01-F09, F11, F13-F15, F17. Blocked: F10 (real ThinkPad
-  time). Not started: F12 (first public commit), F16 (install-zsh procedure doc only, not yet
-  followed on the ThinkPad).
+- `feature_list.json` is the task list. Passing: F01-F09, F11, F13-F17. Blocked: F10 (real ThinkPad
+  time). Not started: F12 (first public commit).
 - F15: report at `~/Work/omarchy-validation-report.md` (no FAIL; 3 DIFFERENT fixed in `docs/reference/keybindings.md`,
   `docs/migration/mac-map.md`, `docs/guide/exercise-guide.md`). Real installer run completed on the ThinkPad:
   atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh-bin 2.33.0 installed via `omarchy pkg add` + `yay`;
@@ -42,17 +41,20 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   at `~/.config/tmux/plugins/` (TMUX_PLUGIN_MANAGER_PATH). `shellcheck` and `zsh` are NOT installed on this ThinkPad;
   `init.sh` did not run. F15 was Procedure 4 in the original task list (Procedure 4 = "validate then install");
   Procedure 4/keys-and-files = `docs/migration/bring-your-stuff.md` was also completed in commit `134fee6`.
-- F16 added today (`docs/migration/install-zsh.md`): the zsh install + chsh + `practice-omarchy-setup --shell zsh`
-  procedure for Week 4 / Ctrl+G widget. Document only — not yet followed on the ThinkPad.
+- F16 closed today (`docs/migration/install-zsh.md`): mixed run on the ThinkPad — pacman zsh 5.9.2-1,
+  `sudo chsh` jonas to /usr/bin/zsh, installer --shell zsh appended the practice-omarchy:zsh block and
+  the ai-shell.zsh source line, ~/.bashrc md5+mtime unchanged, widget fired on Ctrl+G with the buffer
+  becoming `ls -a`. Two repo fixes shipped live (3b10af9 ccgo detection in ai-shell.zsh; 5ab4c02
+  `export SHELL` from getent passwd in installer zsh block, check-drift.py still passes). Two
+  user-config fixes shipped outside the repo (~/.config/ghostty/config + foot/foot.ini + Hyprland
+  env directive) to make new terminals always start zsh regardless of when Hyprland launched.
 - F17 added today (`docs/guide/exercise-guide.md`): four-week plan rewritten as numbered ASD-STE100 procedure
-  steps. 28 days, 127 numbered steps, 0 sentences over 20 words.
+  steps. 29 days (Day 8 Toggles added via F18 batch 1), 138 numbered steps, 0 sentences over 20 words.
 
 ## Next tasks, in order
 
-1. **Procedure 6, install zsh (F16).** Owner follows `docs/migration/install-zsh.md` on the ThinkPad, then
-   captures evidence and marks F16 passing.
-2. **F12 publish.** First commit on `main` and remote publish, after F10 / F16 results land (outward-facing:
-   ask before push).
+1. **F12 publish.** First commit on `main` and remote publish, after F10 results land (outward-facing: ask
+   before push). F16 evidence now in; ready to ship.
 
 ## Differences from the Mac session
 
