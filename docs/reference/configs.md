@@ -65,6 +65,11 @@ aliases start the agents in auto-approve mode.
 ```zsh
 # Port of Omarchy's bash helpers to zsh (Omarchy ships these in bash only).
 # Approximation of Omarchy's agent aliases: Omarchy's versions auto-approve; these do not.
+
+# This file is sourced from zsh. Force $SHELL to the login shell from /etc/passwd:
+# a fresh session can be launched before chsh takes effect and inherit a stale value.
+export SHELL="$(getent passwd "$(id -un)" | cut -d: -f7)"
+
 alias c='opencode'
 alias cx='claude'
 alias cy='codex'
