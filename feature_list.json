@@ -136,6 +136,15 @@
       "state": "passing",
       "evidence": "2026-10-19: report at ~/Work/omarchy-validation-report.md. No FAIL items, only 3 DIFFERENT (Super/Q row in keybindings.md, Cmd+Q row in mac-map.md, Day 5 in exercise-guide.md). Omarchy 4.0.5 confirmed; foot+ghostty installed (user override); bash only, no zsh; tmux prefix Ctrl+Space confirmed; all 8 layout functions/aliases present; all 10 documented tools present except atuin/tv/spf/sesh (dry-run only); quiz 93 questions 10 sections ok after Super/Q row removed; installer dry-run ends 'done.'; ccgo-check prints 4 ok lines in interactive shell. Repo fixes applied. init.sh not run: shellcheck and zsh are NOT installed on this ThinkPad (owner decision). 2026-10-19 REAL INSTALLER RUN (ThinkPad): sudoers NOPASSWD set for %wheel; bash scripts/practice-omarchy-setup.sh --shell bash -> installs atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh-bin 2.33.0 (plus sesh-bin-debug); appends practice-omarchy:tmux block to ~/.config/tmux/tmux.conf and practice-omarchy:bash block to ~/.bashrc (both backed up); clones ~/.tmux/plugins/tpm; output ends 'done.'. Post-install verification: command -v atuin tv spf sesh returns /usr/bin/ paths; versions print (atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh 2.33.0). tmux plugins installed via Prefix+I in running session: tpm + omerxx/tmux-sessionx + omerxx/tmux-floax present at ~/.config/tmux/plugins/ (TMUX_PLUGIN_MANAGER_PATH, not ~/.tmux/); sessionx bound to Prefix+o, floax to Prefix+p.",
       "notes": "Replaces the hand-run part of F10. Report goes back via branch validation-report (docs/migration/reports/thinkpad-report.md). Known repo claims to test: default terminal Foot, tmux config path, tdl/tds/tdlm/tsl and c/cx/cy in bash, keybinding rows, mac-map rows. Manual lists Super+Q to close window; default Omarchy 4.0.5 bindings do not. ai-shell.zsh requires zsh (not installed)."
+    },
+    {
+      "id": "F16",
+      "priority": 16,
+      "behavior": "Procedure to install zsh on the ThinkPad (pacman, chsh, installer's --shell zsh, exec zsh) so the Week 4 inline AI widget (Ctrl+G) works; bash stays default; no overwrite of bash configs; numbered ASD-STE100 steps",
+      "verification": "test -f docs/migration/install-zsh.md; no procedural sentence over 20 words (manual audit recorded in evidence); on the ThinkPad with `jonas` as the user: `sudo pacman -S --noconfirm zsh` installs zsh; `chsh -s /usr/bin/zsh jonas` exits 0; `bash ~/Work/practice-omarchy/scripts/practice-omarchy-setup.sh --shell zsh` appends the practice-omarchy:zsh block to ~/.zshrc; exec zsh replaces the shell; Ctrl+G opens the ai-shell widget; bash unchanged (`exec bash` works, ~/.bashrc untouched)",
+      "state": "not_started",
+      "evidence": "",
+      "notes": "Pairs with the F15 footnote ('ai-shell.zsh requires zsh'); not yet followed on the ThinkPad. Built 2026-10-19 in the same style as docs/migration/bring-your-stuff.md; committed 2026-10-20."
     }
   ]
 }
