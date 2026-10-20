@@ -163,6 +163,15 @@
       "state": "in_progress",
       "evidence": "2026-10-20 batch 1: toggle + grouping features from the bundle, cross-checked against https://omarchy.org/manual/hotkeys/ (read 2026-10-20) AND `hyprctl binds` on Omarchy 4.0.6. Verified features added to plan: FEAT-39 (Super+Shift+Space top bar), FEAT-40 (Super+Shift+Backspace window gaps), FEAT-38 (Super+Ctrl+N nightlight), FEAT-37 (Super+Ctrl+O toggle menu), FEAT-14 (Super+G window grouping). Skipped due to spec-vs-v4 mismatch: FEAT-02/03 (v3 launcher split; v4 has Super+Space as unified Omarchy menu, Super+Alt+Space as App grid), FEAT-13 (spec swapped toggle/send-to-scratchpad). Bundle files remain in /tmp/omarchy-bundle-2026-10-20/, not in repo.",
       "notes": "Started 2026-10-20 after the user provided the omarchy-agent-spec-bundle.zip. Scope is the 12-15 features from the spec worth adding to the practice plan; verified one at a time against omarchy.org/manual/ + hyprctl on this machine. Spec content not committed. F18 stays in_progress across batches; promoted to passing after the listed candidates are done."
+    },
+    {
+      "id": "F19",
+      "priority": 19,
+      "behavior": "Procedure (and helper script) to copy ~/.claude/commands and ~/.claude/skills from a Mac to a ThinkPad so Claude Code has the same slash commands and skills on both machines. ASD-STE100 numbered steps; bundled shell script automates Part C and verifies counts.",
+      "verification": "test -f docs/reference/claude-code-migrate.md; doc covers Parts A through F (inventory, transport, scp copy script, git push+clone, verify, resolve dependencies); no procedural sentence over 20 words; test -x scripts/migrate-cc-from-mac.sh; bash -n scripts/migrate-cc-from-mac.sh exits 0; WARNING block flags dependency risk; NOTE block flags which dirs are not portable; the script refuses to copy non-portable dirs.",
+      "state": "passing",
+      "evidence": "2026-10-20. Created docs/reference/claude-code-migrate.md and scripts/migrate-cc-from-mac.sh. Doc sentence audit: 0 / 20-word sentences; 28 numbered procedural steps; 6 Parts (A-F). Script: bash -n exits 0; chmod +x applied. shellcheck NOT installed on this ThinkPad (per CLAUDE.md State), so the script was reviewed manually for SC warnings (set -euo pipefail, quoted expansions, no -A, named traps on error paths). Not run end-to-end (no Mac in this session).",
+      "notes": "Created 2026-10-20 at the user's request after a chat discussion. The doc is reachable from github.com/joaoblasques/practice-omarchy in docs/reference/claude-code-migrate.md. The script lives at scripts/migrate-cc-from-mac.sh; requires `--host <jonas@ip|hostname>` and SSH access. End-to-end run pending when the user is on the Mac."
     }
   ]
 }
