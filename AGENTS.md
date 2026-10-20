@@ -98,3 +98,27 @@ What the procedure does:
 - Part B: turns on SSH from `Setup > Security > SSHD`, then checks that `sshd` is active.
 - Part C: adds the Mac public key to `~/.ssh/authorized_keys`.
 - Parts D and E: report the ThinkPad name and user to the owner, and record the result in F19 evidence.
+
+## Open work split by machine (2026-10-20)
+
+State: SSH Mac -> ThinkPad works over Tailscale SSH (host `jonas@omarchy`, no key needed). F19 (copy
+`~/.claude/commands` and `~/.claude/skills`) is not done. The ThinkPad already holds the skills
+`diagnose-crash` and `omarchy`, and 0 commands. `scp` adds and overwrites; it never deletes.
+
+### Mac session (do first)
+1. Change `scripts/migrate-cc-from-mac.sh` to verify by name: every source command and skill name must exist on
+   the ThinkPad. Do not compare totals. The ThinkPad's own skills make totals differ.
+2. List names that exist on both machines. Show the owner any overlap before the copy. `scp` overwrites them.
+3. Run `bash scripts/migrate-cc-from-mac.sh --host jonas@omarchy`.
+4. Scan the copied skills for `/Users/jonasblasques` and macOS-only tools. List the skills that need a fix.
+5. Fix `docs/from-mac.md` and `docs/reference/claude-code-migrate.md`: the ThinkPad repo path is
+   `~/Dev/setup+practice-omarchy`, not `~/Work/practice-omarchy`.
+6. Note in `docs/migration/ssh-from-mac.md` that Tailscale SSH needs no key, so Part C is optional.
+7. Record the result in F19 `evidence` in `feature_list.json`. Commit and push.
+
+### ThinkPad session (after the Mac copy)
+1. Run `git pull --rebase --autostash`.
+2. Open Claude Code. Run `/anythingood` and `/monthly-checkin`. Run `/clarity-review`, `/clarity-interview` and `/clarity-rewrite`.
+3. Report any command or skill that fails or uses a Mac path. The Mac session fixes it.
+4. Ask the owner about F12 (first public commit). Push only after the owner says yes.
+5. Continue F18 (in progress). Change only that item in `feature_list.json`.
