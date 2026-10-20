@@ -77,3 +77,10 @@ unrecorded. Commit only when asked.
   dependencies, `omarchy pkg add` AUR handling, Ctrl+G widget) is unverified.
 - The agent aliases `c`, `cx`, `cy` exist in Omarchy's bash; the zsh block approximates them
   without Omarchy's auto-approve flags.
+
+## macOS session mode (added 2026-10-20)
+
+When the operator opens this repo on macOS and identifies themselves as on Mac, read
+`docs/from-mac.md` and walk them through the macOS-side checklist. Do not read it on a
+ThinkPad session. The full procedure lives at `docs/reference/claude-code-migrate.md`; the
+handoff file is the Mac-side subset the user can read at a glance.

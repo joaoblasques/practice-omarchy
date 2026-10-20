@@ -172,6 +172,15 @@
       "state": "passing",
       "evidence": "2026-10-20. Created docs/reference/claude-code-migrate.md and scripts/migrate-cc-from-mac.sh. Doc sentence audit: 0 / 20-word sentences; 28 numbered procedural steps; 6 Parts (A-F). Script: bash -n exits 0; chmod +x applied. shellcheck NOT installed on this ThinkPad (per CLAUDE.md State), so the script was reviewed manually for SC warnings (set -euo pipefail, quoted expansions, no -A, named traps on error paths). Not run end-to-end (no Mac in this session).",
       "notes": "Created 2026-10-20 at the user's request after a chat discussion. The doc is reachable from github.com/joaoblasques/practice-omarchy in docs/reference/claude-code-migrate.md. The script lives at scripts/migrate-cc-from-mac.sh; requires `--host <jonas@ip|hostname>` and SSH access. End-to-end run pending when the user is on the Mac."
+    },
+    {
+      "id": "F20",
+      "priority": 20,
+      "behavior": "Mac-side handoff for the practice-omarchy repo. When the operator opens the repo on macOS and identifies themselves as on Mac, the assistant reads docs/from-mac.md and walks them through the macOS-side checklist. AGENTS.md carries a short clause so the agent looks up the file on demand.",
+      "verification": "test -f docs/from-mac.md; doc covers the Mac-side checklist (cd to the repo, ls counts, run scripts/migrate-cc-from-mac.sh, switch to ThinkPad); no procedural sentence over 20 words; AGENTS.md includes a `macOS session mode` clause that names docs/from-mac.md; the file is NOT auto-loaded into the Mac session's prompt (no @ docs/from-mac.md directive in CLAUDE.md or AGENTS.md).",
+      "state": "passing",
+      "evidence": "2026-10-20. Created docs/from-mac.md (75 lines, 8-step checklist) and added a `macOS session mode` clause to AGENTS.md pointing at the file. Sentence audit: 0 / 20-word sentences. AGENTS.md unchanged elsewhere. Not yet opened on a Mac to confirm an agent will surface the file; the new clause is the trigger.",
+      "notes": "Created 2026-10-20 after the user requested a Mac-side handoff so a future Mac session knows what to do. The clause is conditional ('when the operator says they are on macOS') so a ThinkPad session is unaffected."
     }
   ]
 }
