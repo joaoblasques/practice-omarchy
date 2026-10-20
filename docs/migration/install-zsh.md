@@ -50,9 +50,9 @@ Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches 
 
     **Result:** the same shell is now zsh. The prompt may change. `Ctrl + R` now uses `atuin`.
 
-14. Press `Ctrl + G`. The status line shows `ai-shell ready`. Type `list hidden files` and press `Enter`.
+14. Type `list hidden files` in the buffer. Press `Ctrl + G`.
 
-    **Result:** the widget inserts a command, often `find . -name '.*' -type f`.
+    **Result:** the buffer briefly shows `# thinking: list hidden files`, then replaces with one command, often `find . -name '.*' -type f`. Press `Enter` to run it.
 
 15. Type `echo $SHELL` and press `Enter`.
 
@@ -67,7 +67,8 @@ Run this procedure when the [practice plan](../guide/exercise-guide.md) reaches 
 | Step 10 prints `ERROR: --shell must be bash or zsh` | typo | Re-run step 10 with `--shell zsh` (lowercase). |
 | Step 11 shows no `practice-omarchy:zsh` block | the installer's bash branch ran by mistake | Re-run step 10 with `--shell zsh` explicitly. |
 | Step 13 still shows bash | the parent shell cached bash | Close the terminal and start a fresh one. |
-| `Ctrl + G` does nothing | `ai-shell.zsh` not sourced | Check `~/.zshrc` for `source ~/Work/practice-omarchy/scripts/ai-shell.zsh`. Add it if missing. |
+| `Ctrl + G` does nothing on an empty buffer | the widget silently exits when `$BUFFER` is empty | Type your request in the buffer first, then press `Ctrl + G`. |
+| `Ctrl + G` does nothing with text in the buffer | `ai-shell.zsh` not sourced | Check `~/.zshrc` for `source ~/Work/practice-omarchy/scripts/ai-shell.zsh`. Add it if missing. Confirm with `bindkey "^G"` (must print `_ai_shell_widget`). |
 
 ## To go back to bash
 
