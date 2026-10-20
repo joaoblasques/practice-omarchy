@@ -55,6 +55,25 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 
 1. **F12 publish.** First commit on `main` and remote publish, after F10 results land (outward-facing: ask
    before push). F16 evidence now in; ready to ship.
+2. **F19 end-to-end run.** Owner follows the F19 procedure from the Mac to migrate `.claude/commands`
+   and `.claude/skills` to the ThinkPad. The script lives at `scripts/migrate-cc-from-mac.sh`; the doc at
+   `docs/reference/claude-code-migrate.md`; the Mac-side checklist at `docs/from-mac.md`.
+3. **F10 stale state.** Label is still `blocked`, but F15 + F16 effectively covered its verification line.
+   Owner decision on whether to flip to `passing` or run a final smoke test first.
+
+## Handoff (added 2026-10-20)
+
+Owner is leaving the ThinkPad session and continuing on the Mac. When they next open this repo:
+
+- On the **Mac**: read `docs/from-mac.md` (the AGENTS.md `macOS session mode` clause points the agent there
+  on demand). Run `scripts/migrate-cc-from-mac.sh --host <thinkpad-host>` from a Mac terminal. End-to-end
+  F19 outcome folds back into F19 evidence.
+- On the **ThinkPad**: state lives in `feature_list.json` (20 features; F12 not_started, F18 in_progress,
+  everything else passing) and this file. Origin `main` is at `7912dcc`. The push-from-Mac flow lands
+  files in the ThinkPad user's `~/.claude/`. If the operator returns to a fresh Claude Code session on
+  either side, those commands and skills are available locally.
+- **Outward-facing actions** (push to a public remote, delete files, `sudo`, install packages) still
+  require explicit owner approval.
 
 ## Differences from the Mac session
 
