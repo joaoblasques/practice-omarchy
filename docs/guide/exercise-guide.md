@@ -7,14 +7,14 @@ one, `Super + K` lists them all.
 
 **Prerequisites:** Omarchy v4 is installed. The installer
 (`bash scripts/practice-omarchy-setup.sh`) has run. Migration steps from
-[`docs/migration/README.md`](../migration/README.md) are done. bash is your
+[`docs/migration/README.md`](../migration/README.md) are done. zsh is your
 login shell.
 
 **WARNING:** No mouse for the week's skills. The mouse is a fallback, not a tool.
 
-**NOTE:** Stay on bash for Weeks 1 to 3. Switch to zsh only when Week 4, Day 4
-asks for it. Follow [Procedure 6](../migration/install-zsh.md) for the switch.
-The installer is additive and does not touch your existing `~/.zshrc`.
+**NOTE:** Use zsh for the whole plan. Follow
+[Procedure 6](../migration/install-zsh.md) for the switch. The installer is
+additive and does not touch your existing `~/.zshrc`.
 
 **NOTE:** Plan length is about fifteen minutes per day. Each week has a goal,
 daily tasks, and a "done when" check you can run yourself. Copy the progress
@@ -329,11 +329,10 @@ To drill one area, add `--section <name>` (for example `--section tmux`).
 
    **Result:** you can run a 2x2 agent grid and prune it.
 
-### Day 4 — Inline AI in the shell (zsh only)
+### Day 4 — Inline AI in the shell
 
-**WARNING:** this step needs zsh. Stay on bash for the rest of the plan if you
-do not want to switch. To switch, follow
-[Procedure 6](../migration/install-zsh.md) first.
+**NOTE:** this step needs zsh, which the plan assumes. If your login shell is
+still bash, follow [Procedure 6](../migration/install-zsh.md) first.
 
 1. Open a fresh zsh terminal.
 2. Type `source ~/Work/practice-omarchy/scripts/ai-shell.zsh` and press `Enter`.
@@ -382,9 +381,9 @@ do not want to switch. To switch, follow
 
 Copy this list into a private note and tick each box on the day.
 
-- [ ] Week 1, Day 1 — Launch three apps with Super
-- [ ] Week 1, Day 2 — Move between workspaces
-- [ ] Week 1, Day 3 — Move and swap windows
+- [x] Week 1, Day 1 — Launch three apps with Super
+- [x] Week 1, Day 2 — Move between workspaces
+- [x] Week 1, Day 3 — Move and swap windows
 - [ ] Week 1, Day 4 — Clipboard
 - [ ] Week 1, Day 5 — Close and float
 - [ ] Week 1, Day 6 — Screenshots and OCR
@@ -407,7 +406,7 @@ Copy this list into a private note and tick each box on the day.
 - [ ] Week 4, Day 1 — One agent in a project
 - [ ] Week 4, Day 2 — Two agents side by side
 - [ ] Week 4, Day 3 — Four agents in a grid
-- [ ] Week 4, Day 4 — Inline AI in the shell (zsh only)
+- [ ] Week 4, Day 4 — Inline AI in the shell
 - [ ] Week 4, Day 5 — Add one custom keybinding
 - [ ] Week 4, Day 6 — Put your dotfiles under version control
 - [ ] Week 4, Day 7 — Graduation
