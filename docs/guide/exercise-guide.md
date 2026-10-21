@@ -397,7 +397,7 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 1, Day 3 — Move and swap windows
 - [x] Week 1, Day 4 — Clipboard
 - [x] Week 1, Day 5 — Close and float
-- [ ] Week 1, Day 6 — Screenshots and OCR
+- [x] Week 1, Day 6 — Screenshots and OCR
 - [ ] Week 1, Day 7 — Open the Omarchy menu and change theme
 - [ ] Week 1, Day 8 — Toggles
 - [ ] Week 2, Day 1 — Splits and focus
