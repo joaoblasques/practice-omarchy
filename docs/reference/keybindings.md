@@ -88,8 +88,8 @@ Prefix is `Ctrl + Space` (`Ctrl + B` also works). Config: `~/.config/tmux/tmux.c
 | Split the pane below | `Prefix + h` |
 | Zoom a pane to full screen | `Prefix + z` |
 | Kill the pane | `Prefix + x` |
-| Move between panes | `Ctrl + Alt + Arrows` |
-| Resize panes | `Ctrl + Alt + Shift + Arrows` |
+| Move between panes | `Prefix + Arrows` |
+| Resize panes | `Prefix + Alt + Arrows` |
 | New window | `Prefix + c` |
 | Go to window 1 to 9 | `Alt + 1-9` |
 | Rename the window | `Prefix + r` |
@@ -156,4 +156,4 @@ Prefix is `Ctrl + Space` (`Ctrl + B` also works). Config: `~/.config/tmux/tmux.c
 | New split below | `Ctrl + Shift + E` |
 | New split beside | `Ctrl + Shift + O` |
 | New tab | `Ctrl + Shift + T` |
-| Move between splits | `Ctrl + Alt + Arrows` |
+| Move between splits | `Prefix + Arrows` |

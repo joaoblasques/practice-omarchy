@@ -170,12 +170,16 @@ Run `omarchy capture screenshot fullscreen save` for the full screen.
 
 ### Day 1 — Splits and focus
 
-1. Press `Super + Alt + Return`. A floating terminal opens.
-2. Press `Prefix + v`. The terminal splits vertically.
-3. Press `Prefix + h`. The terminal splits horizontally.
-4. Press `Ctrl + Alt + Right`. Focus moves to the right pane.
+1. Press `Super + Alt + Return`. A terminal opens and runs tmux in a session named `Work`.
+2. Press `Prefix + v`. Two panes sit side by side.
+3. Press `Prefix + h`. A third pane appears below.
+4. Press `Prefix + Right`. Focus moves to the right pane.
 
-   **Result:** you can build a two-pane layout with the keyboard.
+   **Result:** you can build a three-pane layout with the keyboard.
+
+**NOTE:** the split names describe the divider line. `Prefix + h` draws a
+horizontal divider, so panes stack. `Prefix + v` draws a vertical divider,
+so panes sit side by side.
 
 ### Day 2 — Windows
 
