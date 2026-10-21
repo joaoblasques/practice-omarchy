@@ -4,6 +4,7 @@
 #
 #   ccgo-check   one tiny request per model: tells you which models and key work (uses ~4 requests)
 #   ccgo         start Claude Code on Go; any arguments go to `claude`
+#   ccgoy        same as ccgo, with --permission-mode bypassPermissions (no approval prompts)
 #
 # Design goal: never hit a limit and never lose access. Go caps each model separately, so each
 # Claude Code slot uses a different model (separate budgets). See
@@ -40,6 +41,9 @@ ccgo() {
     ANTHROPIC_DEFAULT_HAIKU_MODEL="$CCGO_HAIKU" CLAUDE_CODE_SUBAGENT_MODEL="$CCGO_SUBAGENT" \
         claude "$@"
 }
+
+# Function, not alias: aliases in ~/.bashrc are invisible to zsh.
+ccgoy() { ccgo --permission-mode bypassPermissions "$@"; }
 
 ccgo-check() {
     local key model code failed=0
