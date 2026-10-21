@@ -11,7 +11,7 @@ You opened this repo on macOS and the Claude Code session you are talking to run
 ## Mac-side checklist (do these in order)
 
 1. Open a Mac terminal.
-2. Type `cd ~/Dev/setup+practice-omarchy` and press `Enter`.
+2. Type `cd ~/Work/practice-omarchy` and press `Enter`.
 
    **Result:** the working directory is your local clone of this repo.
 

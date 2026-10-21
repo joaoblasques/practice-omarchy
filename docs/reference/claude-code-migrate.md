@@ -42,7 +42,7 @@ The script automates Part C, refuses to copy non-portable state, and verifies by
 **Prerequisites:** jonas's SSH public key lives in `jonas@<thinkpad-host>:.ssh/authorized_keys`.
 
 1. Open a terminal on the Mac.
-2. Type `cd ~/Dev/setup+practice-omarchy` and press `Enter`.
+2. Type `cd ~/Work/practice-omarchy` and press `Enter`.
 
    **Result:** the working directory is the local clone of this repo.
 

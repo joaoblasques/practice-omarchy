@@ -111,8 +111,8 @@ State: SSH Mac -> ThinkPad works over Tailscale SSH (host `jonas@omarchy`, no ke
 2. List names that exist on both machines. Show the owner any overlap before the copy. `scp` overwrites them.
 3. Run `bash scripts/migrate-cc-from-mac.sh --host jonas@omarchy`.
 4. Scan the copied skills for `/Users/jonasblasques` and macOS-only tools. List the skills that need a fix.
-5. Fix `docs/from-mac.md` and `docs/reference/claude-code-migrate.md`: the ThinkPad repo path is
-   `~/Dev/setup+practice-omarchy`, not `~/Work/practice-omarchy`.
+5. (Done 2026-10-21) The ThinkPad repo path is `~/Work/practice-omarchy`. `~/Dev` does not exist there.
+   An earlier version of this step said the opposite. That was wrong.
 6. Note in `docs/migration/ssh-from-mac.md` that Tailscale SSH needs no key, so Part C is optional.
 7. Record the result in F19 `evidence` in `feature_list.json`. Commit and push.
 
