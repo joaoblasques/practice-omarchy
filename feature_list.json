@@ -107,7 +107,7 @@
       "behavior": "First commit and GitHub publish",
       "verification": "git log --oneline shows the initial commit; remote exists; no secrets or personal files tracked (git ls-files | rg -i 'inventory|\\.env|hardware|HANDOFF' returns nothing)",
       "state": "not_started",
-      "evidence": "",
+      "evidence": "2026-10-21 Repo made public by the owner (gh repo view: PUBLIC). History scan before the switch: 35 commits plus 5 later ones, one branch, no tags. No key-shaped strings, secret assignments, Tailscale links or IPs; no sensitive file ever tracked. Owner accepted that author email is public in every commit and chose not to rewrite history. F12 verification line deviates: `git ls-files | rg -i 'inventory|\\.env|hardware|HANDOFF'` returns scripts/mac-inventory.sh (the script, not data); check not edited.",
       "notes": "Wait for F10 results so the first public version is validated. Replace <you> in README.md clone URL. Needs the owner's go-ahead (outward-facing)."
     },
     {

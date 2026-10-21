@@ -27,7 +27,7 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 
 ## State (2026-10-20)
 
-- The repo is private: `github.com/joaoblasques/practice-omarchy`. Default branch is `main`.
+- The repo is public (since 2026-10-21): `github.com/joaoblasques/practice-omarchy`. Default branch is `main`.
 - On the ThinkPad: `ccgo-setup.sh` ran, `ccgo-check` shows `ok` for four models, `ccgo` works.
 - Go Console: Extra Usage is off, balance is $0, per-model budgets are unconfirmed (see
   `docs/reference/claude-code-opencode-go.md`).
