@@ -37,10 +37,13 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   `docs/migration/mac-map.md`, `docs/guide/exercise-guide.md`). Real installer run completed on the ThinkPad:
   atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh-bin 2.33.0 installed via `omarchy pkg add` + `yay`;
   `practice-omarchy:tmux` block appended to `~/.config/tmux/tmux.conf`; `practice-omarchy:bash` block appended to
-  `~/.bashrc`; `~/.tmux/plugins/tpm` cloned; tmux plugins `tpm`, `omerxx/tmux-sessionx`, `omerxx/tmux-floax` installed
-  at `~/.config/tmux/plugins/` (TMUX_PLUGIN_MANAGER_PATH). `shellcheck` and `zsh` are NOT installed on this ThinkPad;
-  `init.sh` did not run. F15 was Procedure 4 in the original task list (Procedure 4 = "validate then install");
-  Procedure 4/keys-and-files = `docs/migration/bring-your-stuff.md` was also completed in commit `134fee6`.
+  `~/.bashrc`; `~/.tmux/plugins/tpm` cloned (TPM's default path). Plugins `omerxx/tmux-sessionx` and
+  `omerxx/tmux-floax` sit in `~/.config/tmux/plugins/`, which TPM does not manage, and
+  `TMUX_PLUGIN_MANAGER_PATH` is set nowhere. `Prefix + o` and `Prefix + p` do nothing until the owner opens
+  tmux and presses `Prefix + I`. `shellcheck` 0.11.0 installed 2026-10-21 via `sudo pacman -S shellcheck`;
+  `zsh` 5.9.2 arrived with F16. `./init.sh` runs green on this ThinkPad. F15 was Procedure 4 in the original
+  task list (Procedure 4 = "validate then install"); Procedure 4/keys-and-files =
+  `docs/migration/bring-your-stuff.md` was also completed in commit `134fee6`.
 - F16 closed today (`docs/migration/install-zsh.md`): mixed run on the ThinkPad — pacman zsh 5.9.2-1,
   `sudo chsh` jonas to /usr/bin/zsh, installer --shell zsh appended the practice-omarchy:zsh block and
   the ai-shell.zsh source line, ~/.bashrc md5+mtime unchanged, widget fired on Ctrl+G with the buffer
@@ -50,6 +53,9 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   env directive) to make new terminals always start zsh regardless of when Hyprland launched.
 - F17 added today (`docs/guide/exercise-guide.md`): four-week plan rewritten as numbered ASD-STE100 procedure
   steps. 29 days (Day 8 Toggles added via F18 batch 1), 138 numbered steps, 0 sentences over 20 words.
+  Week 1 was practised on the ThinkPad on 2026-10-21; Days 1 to 8 are ticked. Six doc defects surfaced by
+  checking `hyprctl binds` and `tmux list-keys` against the text; all six are fixed in `cb59adf`,
+  `bbfbbcc` and `75f5172`. Week 2 opens on tmux. See `HANDOFF.md` (gitignored, ThinkPad side).
 
 ## Next tasks, in order
 
