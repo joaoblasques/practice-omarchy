@@ -81,6 +81,9 @@ To drill one area, add `--section <name>` (for example `--section tmux`).
 
    **Result:** you can copy between apps and inside the terminal with `Super + C / V`.
 
+**NOTE:** `Super + C` copies only a selection. In a terminal, select the text
+first. Use the mouse for that step. It is the only exception to the no-mouse rule.
+
 ### Day 5 — Close and float
 
 1. Press `Super + W`. A window closes.
@@ -384,7 +387,7 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 1, Day 1 — Launch three apps with Super
 - [x] Week 1, Day 2 — Move between workspaces
 - [x] Week 1, Day 3 — Move and swap windows
-- [ ] Week 1, Day 4 — Clipboard
+- [x] Week 1, Day 4 — Clipboard
 - [ ] Week 1, Day 5 — Close and float
 - [ ] Week 1, Day 6 — Screenshots and OCR
 - [ ] Week 1, Day 7 — Open the Omarchy menu and change theme
