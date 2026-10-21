@@ -96,12 +96,20 @@ first. Use the mouse for that step. It is the only exception to the no-mouse rul
 
 ### Day 6 — Screenshots and OCR
 
-1. Press `Print Screen`. A full-screen screenshot saves.
-2. Press `Super + Ctrl + Print Screen`. A region selector appears.
-3. Drag a box. Press `Enter`. The selected text goes to the clipboard.
-4. Press `Super + V` in a terminal. The text pastes.
+**NOTE:** `Print` opens a region picker. It does not capture the full screen.
+Each image saves to `~/Pictures/` as a PNG file. It also goes to the clipboard.
+Run `omarchy capture screenshot fullscreen save` for the full screen.
 
-   **Result:** you can grab an image and the text from any screen region.
+1. Press `Print`. A region picker opens.
+2. Click a window or drag a box. The image saves to `~/Pictures/`.
+
+   **Result:** you can grab an image from any screen region.
+
+3. Press `Super + Ctrl + Print Screen`. A region picker opens.
+4. Drag a box. Press `Enter`. The selected text goes to the clipboard.
+5. Press `Super + V` in a terminal. The text pastes.
+
+   **Result:** you can copy text from any screen region.
 
 ### Day 7 — Open the Omarchy menu and change theme
 
