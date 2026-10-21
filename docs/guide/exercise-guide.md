@@ -403,7 +403,7 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 1, Day 5 — Close and float
 - [x] Week 1, Day 6 — Screenshots and OCR
 - [x] Week 1, Day 7 — Open the Omarchy menu and change theme
-- [ ] Week 1, Day 8 — Toggles
+- [x] Week 1, Day 8 — Toggles
 - [ ] Week 2, Day 1 — Splits and focus
 - [ ] Week 2, Day 2 — Windows
 - [ ] Week 2, Day 3 — Sessions
