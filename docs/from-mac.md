@@ -11,7 +11,7 @@ You opened this repo on macOS and the Claude Code session you are talking to run
 ## Mac-side checklist (do these in order)
 
 1. Open a Mac terminal.
-2. Type `cd ~/Work/practice-omarchy` and press `Enter`.
+2. Type `cd ~/Dev/setup+practice-omarchy` and press `Enter`.
 
    **Result:** the working directory is your local clone of this repo.
 
@@ -25,7 +25,7 @@ You opened this repo on macOS and the Claude Code session you are talking to run
 
 5. Type `bash scripts/migrate-cc-from-mac.sh --host <thinkpad-host>` and press `Enter`. Replace `<thinkpad-host>` with the ThinkPad's hostname or `jonas@<ip>`.
 
-   **Result:** the script copies the two directories. It ends with `ok: counts match.` or `FAIL: ...`.
+   **Result:** the script copies the two directories. It ends with `ok: every source name exists on <host>.` or `FAIL: ...`.
 
 6. If SSH prompts, type the password and press `Enter`.
 
@@ -35,7 +35,7 @@ You opened this repo on macOS and the Claude Code session you are talking to run
 
    **Result:** the ThinkPad agent runs the rest of the procedure.
 
-**Done when:** the migration script printed `ok: counts match. Open Claude Code on <host> and try /<command> for each one.`.
+**Done when:** the migration script printed `ok: every source name exists on <host>. Open Claude Code there and try /<command> for each one.`.
 
 ## For the assistant on this Mac
 

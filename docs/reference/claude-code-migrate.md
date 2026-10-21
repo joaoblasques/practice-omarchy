@@ -37,18 +37,18 @@ Use the transport that matches the machine link.
 
 ## Part C: Copy with the bundled script
 
-The script automates Part C, refuses to copy non-portable state, and verifies the counts.
+The script automates Part C, refuses to copy non-portable state, and verifies by name that every source command and skill exists on the ThinkPad. It stops on a name overlap until you add `--overwrite`.
 
 **Prerequisites:** jonas's SSH public key lives in `jonas@<thinkpad-host>:.ssh/authorized_keys`.
 
 1. Open a terminal on the Mac.
-2. Type `cd ~/Work/practice-omarchy` and press `Enter`.
+2. Type `cd ~/Dev/setup+practice-omarchy` and press `Enter`.
 
    **Result:** the working directory is the local clone of this repo.
 
 3. Type `bash scripts/migrate-cc-from-mac.sh --host <thinkpad-host>` and press `Enter`.
 
-   **Result:** the script copies `~/.claude/commands/` and `~/.claude/skills/`, then prints `ok: counts match. Open Claude Code on <host> and try /<command> for each one.`
+   **Result:** the script copies `~/.claude/commands/` and `~/.claude/skills/`, then prints `ok: every source name exists on <host>. Open Claude Code there and try /<command> for each one.`
 
 4. If SSH asks for the password, type it and press `Enter`.
 

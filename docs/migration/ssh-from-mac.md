@@ -35,7 +35,7 @@ Omarchy turns it on with `Setup > Security > SSHD`. Omarchy installs Tailscale w
 
 9. Press `Super + Space`. Select `Setup`, then `Security`, then `SSHD`.
 
-   **Result:** Omarchy starts the SSH daemon and opens port 22. Omarchy can ask for a key. Do Part C if it does.
+   **Result:** Omarchy starts the SSH daemon and opens port 22. Tailscale SSH needs no key, so Part C is optional. Do Part C only if SSH asks for a key.
 
 10. In Foot, type `systemctl is-active sshd` and press `Enter`.
 
