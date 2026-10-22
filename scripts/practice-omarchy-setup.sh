@@ -97,6 +97,9 @@ set -g @sessionx-preview-location 'top'
 set -g @floax-bind 'p'
 set -g @floax-path-tracking 'on'
 
+# Keep the status bar at the bottom. Overrides the Omarchy default (top).
+set -g status-position bottom
+
 # TPM must be the last line
 if-shell "test -f ~/.tmux/plugins/tpm/tpm" "run '~/.tmux/plugins/tpm/tpm'"
 EOF
@@ -118,15 +121,15 @@ EOF
 else
     add_block "$HOME/.zshrc" zsh <<'EOF'
 # Port of Omarchy's bash helpers to zsh (Omarchy ships these in bash only).
-# Approximation of Omarchy's agent aliases: Omarchy's versions auto-approve; these do not.
+# Agent aliases follow the owner rule: Claude Code via OpenCode Go (ccgo). cy adds auto-approve.
 
 # This file is sourced from zsh. Force $SHELL to the login shell from /etc/passwd:
 # a fresh session can be launched before chsh takes effect and inherit a stale value.
 export SHELL="$(getent passwd "$(id -un)" | cut -d: -f7)"
 
-alias c='opencode'
-alias cx='claude'
-alias cy='codex'
+alias c='ccgo'
+alias cx='ccgo'
+alias cy='ccgoy'
 
 tdl() {
     local agent="${1:-c}"

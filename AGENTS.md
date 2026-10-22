@@ -75,8 +75,10 @@ unrecorded. Commit only when asked.
 ## Known limits (see `feature_list.json` for status)
 - Nothing here has run on a real Omarchy machine yet. Omarchy-side behaviour (tmux plugin
   dependencies, `omarchy pkg add` AUR handling, Ctrl+G widget) is unverified.
-- The agent aliases `c`, `cx`, `cy` exist in Omarchy's bash; the zsh block approximates them
-  without Omarchy's auto-approve flags.
+- The agent aliases `c`, `cx`, `cy` exist in Omarchy's bash. The zsh block maps them to
+  `ccgo` / `ccgoy` (owner rule: Claude Code via OpenCode Go only). `tdl`, `tds`, `tdlm`, `tsl`
+  are defined in the zsh block; they override Omarchy's bash versions and name their window
+  `dev` / `square` / `swarm`.
 
 ## macOS session mode (added 2026-10-20)
 
