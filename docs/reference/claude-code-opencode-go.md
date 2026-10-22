@@ -86,6 +86,7 @@ unconfirmed (expect an error such as HTTP 429, which `ccgo-check` reports as `LI
 | `MissingSessionID` / HTTP 400 | The client did not send a session header. The docs say Claude Code sends its own native one. | `mise upgrade claude` (or `omarchy update`) and retry. If it persists, open an issue upstream. |
 | HTTP 401 / 403 | Wrong or revoked key | Re-copy it from the console. |
 | HTTP 404 | Wrong endpoint or model id | Compare with the Go docs. IDs are lowercase, e.g. `qwen3.8-flash`. |
+| HTTP 402 | One model is unavailable on your plan or account (seen with `minimax-m3`, 2026-10-22) | `ccgo` skips it at launch and uses the next model in that slot's list. Run `ccgo-check` to see which model fails. |
 | HTTP 429 | That model's 5-hour, weekly or monthly budget is used up | Fallback ladder, rung 1. |
 | "API Usage Billing" and a 403 on remote managed settings at startup | Expected when Claude Code points at a non-Anthropic endpoint; the managed-settings fetch fails and Claude Code continues without it | Ignore, or confirm with `/status`. |
 | Errors mentioning `claude-opus-*` or `claude-sonnet-*` | A slot variable is unset, so Claude Code asked Go for a model it does not serve | Use `ccgo`, not plain `claude` with a custom base URL. |
