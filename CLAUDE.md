@@ -25,22 +25,21 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
 - Do not edit the same file as the other writer at the same moment. `feature_list.json` is the shared state:
   change only the item you work on.
 
-## State (2026-10-20)
+## State (2026-10-22)
 
 - The repo is public (since 2026-10-21): `github.com/joaoblasques/practice-omarchy`. Default branch is `main`.
 - On the ThinkPad: `ccgo-setup.sh` ran, `ccgo-check` shows `ok` for four models, `ccgo` works.
 - Go Console: Extra Usage is off, balance is $0, per-model budgets are unconfirmed (see
   `docs/reference/claude-code-opencode-go.md`).
-- `feature_list.json` is the task list. Passing: F01-F09, F11, F13-F17. Blocked: F10 (real ThinkPad
-  time). F12 passing (repo public 2026-10-21).
+- `feature_list.json` is the task list. Passing: everything except F18 (`in_progress`). F10 flipped to
+  passing (F15 + F16 covered its verification; final smoke test run in Week 2 practice 2026-10-22).
 - F15: report at `~/Work/omarchy-validation-report.md` (no FAIL; 3 DIFFERENT fixed in `docs/reference/keybindings.md`,
   `docs/migration/mac-map.md`, `docs/guide/exercise-guide.md`). Real installer run completed on the ThinkPad:
   atuin 18.23.0, television 0.15.9, superfile v1.6.0, sesh-bin 2.33.0 installed via `omarchy pkg add` + `yay`;
   `practice-omarchy:tmux` block appended to `~/.config/tmux/tmux.conf`; `practice-omarchy:bash` block appended to
-  `~/.bashrc`; `~/.tmux/plugins/tpm` cloned (TPM's default path). Plugins `omerxx/tmux-sessionx` and
-  `omerxx/tmux-floax` sit in `~/.config/tmux/plugins/`, which TPM does not manage, and
-  `TMUX_PLUGIN_MANAGER_PATH` is set nowhere. `Prefix + o` and `Prefix + p` do nothing until the owner opens
-  tmux and presses `Prefix + I`. `shellcheck` 0.11.0 installed 2026-10-21 via `sudo pacman -S shellcheck`;
+  `~/.bashrc`; `~/.tmux/plugins/tpm` cloned (TPM's default path). TPM honours XDG: `TMUX_PLUGIN_MANAGER_PATH`
+  resolves to `~/.config/tmux/plugins/`, where `tpm`, `tmux-sessionx` and `tmux-floax` are installed
+  (`Prefix + I` ran 2026-10-22). `Prefix + o` and `Prefix + p` work. `shellcheck` 0.11.0 installed 2026-10-21 via `sudo pacman -S shellcheck`;
   `zsh` 5.9.2 arrived with F16. `./init.sh` runs green on this ThinkPad. F15 was Procedure 4 in the original
   task list (Procedure 4 = "validate then install"); Procedure 4/keys-and-files =
   `docs/migration/bring-your-stuff.md` was also completed in commit `134fee6`.
@@ -56,6 +55,16 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   Week 1 was practised on the ThinkPad on 2026-10-21; Days 1 to 8 are ticked. Six doc defects surfaced by
   checking `hyprctl binds` and `tmux list-keys` against the text; all six are fixed in `cb59adf`,
   `bbfbbcc` and `75f5172`. Week 2 opens on tmux. See `HANDOFF.md` (gitignored, ThinkPad side).
+- Week 2 practised 2026-10-22 on the ThinkPad: Days 1 to 7 ticked; the Done-when ritual passed
+  (detach, close window with `Alt + F4`, `tmux attach`, same panes and paths). New doc defect fixed in the
+  guide: Day 3 step 1 claimed a name prompt; real behaviour is `Prefix + C` (instant numbered session)
+  then `Prefix + $` (rename). Machine changes outside the repo, backups `*.bak-2026-10-22`:
+  tmux block gained `status-position bottom` (mirrored in installer + configs.md, drift OK); zsh block
+  aliases now `c`/`cx` → `ccgo`, `cy` → `ccgoy` (owner rule: OpenCode Go only); Ghostty gained
+  `page_up`/`page_down` scroll keybinds; `omarchy default editor` set to nvim (was pointing at
+  uninstalled `code`). `~/Work/projects` created for Day 5 with shallow clones of fzf, jq, atuin.
+  NOTE: `tdl`/`tds`/`tdlm`/`tsl` on zsh come from the practice-omarchy:zsh block, which overrides
+  Omarchy's bash functions; they name their windows `dev`/`square`/`swarm`.
 
 ## Next tasks, in order
 
