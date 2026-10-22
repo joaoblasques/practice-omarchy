@@ -171,15 +171,19 @@ Run `omarchy capture screenshot fullscreen save` for the full screen.
 ### Day 1 — Splits and focus
 
 1. Press `Super + Alt + Return`. A terminal opens and runs tmux in a session named `Work`.
-2. Press `Prefix + v`. Two panes sit side by side.
-3. Press `Prefix + h`. A third pane appears below.
-4. Press `Prefix + Right`. Focus moves to the right pane.
+2. Press `Prefix + v`. Two panes sit side by side. Focus sits in the right pane.
+3. Press `Prefix + Left`. Focus moves to the left pane.
+4. Press `Prefix + h`. A third pane appears below the left pane.
+5. Press `Prefix + Right`. Focus moves to the right pane.
 
    **Result:** you can build a three-pane layout with the keyboard.
 
 **NOTE:** the split names describe the divider line. `Prefix + h` draws a
 horizontal divider, so panes stack. `Prefix + v` draws a vertical divider,
 so panes sit side by side.
+
+**NOTE:** a split always starts in the pane that has focus. Press
+`Prefix + Left` or `Prefix + Right` first to choose the pane you split.
 
 ### Day 2 — Windows
 
@@ -192,8 +196,8 @@ so panes sit side by side.
 
 ### Day 3 — Sessions
 
-1. Press `Prefix + Shift + C`. A new named session prompts.
-2. Type a name and press `Enter`. The new session opens.
+1. Press `Prefix + C`. A new session opens. It has a number, no name.
+2. Press `Prefix + $`. A prompt appears. Type a name. Press `Enter`. The session takes the name.
 3. Press `Prefix + s`. The session picker opens.
 4. Press `Prefix + d`. The session detaches.
 5. Type `tmux attach -t <name>` and press `Enter`. The session reattaches.
@@ -408,13 +412,13 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 1, Day 6 — Screenshots and OCR
 - [x] Week 1, Day 7 — Open the Omarchy menu and change theme
 - [x] Week 1, Day 8 — Toggles
-- [ ] Week 2, Day 1 — Splits and focus
-- [ ] Week 2, Day 2 — Windows
-- [ ] Week 2, Day 3 — Sessions
-- [ ] Week 2, Day 4 — tdl and tds
-- [ ] Week 2, Day 5 — tdlm in a projects folder
-- [ ] Week 2, Day 6 — Plugins (sessionx and floax)
-- [ ] Week 2, Day 7 — Copy mode
+- [x] Week 2, Day 1 — Splits and focus
+- [x] Week 2, Day 2 — Windows
+- [x] Week 2, Day 3 — Sessions
+- [x] Week 2, Day 4 — tdl and tds
+- [x] Week 2, Day 5 — tdlm in a projects folder
+- [x] Week 2, Day 6 — Plugins (sessionx and floax)
+- [x] Week 2, Day 7 — Copy mode
 - [ ] Week 3, Day 1 — ff and Ctrl-R
 - [ ] Week 3, Day 2 — Jump and search
 - [ ] Week 3, Day 3 — Neovim (LazyVim) file and search
