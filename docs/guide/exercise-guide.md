@@ -420,8 +420,8 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 2, Day 6 — Plugins (sessionx and floax)
 - [x] Week 2, Day 7 — Copy mode
 - [x] Week 3, Day 1 — ff and Ctrl-R
-- [ ] Week 3, Day 2 — Jump and search
-- [ ] Week 3, Day 3 — Neovim (LazyVim) file and search
+- [x] Week 3, Day 2 — Jump and search
+- [x] Week 3, Day 3 — Neovim (LazyVim) file and search
 - [ ] Week 3, Day 4 — Neovim sidebar, tabs, close
 - [ ] Week 3, Day 5 — LazyGit
 - [ ] Week 3, Day 6 — LazyDocker
