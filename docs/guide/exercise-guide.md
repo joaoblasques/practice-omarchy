@@ -422,7 +422,7 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 3, Day 1 — ff and Ctrl-R
 - [x] Week 3, Day 2 — Jump and search
 - [x] Week 3, Day 3 — Neovim (LazyVim) file and search
-- [ ] Week 3, Day 4 — Neovim sidebar, tabs, close
+- [x] Week 3, Day 4 — Neovim sidebar, tabs, close
 - [ ] Week 3, Day 5 — LazyGit
 - [ ] Week 3, Day 6 — LazyDocker
 - [ ] Week 3, Day 7 — One-task redo
