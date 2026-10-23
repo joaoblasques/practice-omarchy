@@ -254,11 +254,11 @@ so panes sit side by side.
 ### Day 1 — ff and Ctrl-R
 
 1. Type `ff` and press `Enter`. The file picker opens.
-2. Type a partial filename. Pick a result. Press `Enter`.
+2. Type a partial filename. Pick a result. Press `Enter`. The path prints on the screen.
 3. Press `Ctrl + R`. The reverse-search prompt opens.
 4. Type a few characters. Press `Enter` on the chosen command.
 
-   **Result:** `ff` opens files. `Ctrl + R` runs older commands.
+   **Result:** `ff` prints the path of a file. It does not open the file. `Ctrl + R` runs older commands.
 
 ### Day 2 — Jump and search
 
@@ -419,7 +419,7 @@ Copy this list into a private note and tick each box on the day.
 - [x] Week 2, Day 5 — tdlm in a projects folder
 - [x] Week 2, Day 6 — Plugins (sessionx and floax)
 - [x] Week 2, Day 7 — Copy mode
-- [ ] Week 3, Day 1 — ff and Ctrl-R
+- [x] Week 3, Day 1 — ff and Ctrl-R
 - [ ] Week 3, Day 2 — Jump and search
 - [ ] Week 3, Day 3 — Neovim (LazyVim) file and search
 - [ ] Week 3, Day 4 — Neovim sidebar, tabs, close
