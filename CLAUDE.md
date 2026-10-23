@@ -65,6 +65,14 @@ subscription). A session on the Mac may also work on this repo. Two writers exis
   uninstalled `code`). `~/Work/projects` created for Day 5 with shallow clones of fzf, jq, atuin.
   NOTE: `tdl`/`tds`/`tdlm`/`tsl` on zsh come from the practice-omarchy:zsh block, which overrides
   Omarchy's bash functions; they name their windows `dev`/`square`/`swarm`.
+- Ghostty font-size fix (2026-10-23): `font-size = 9` → `12` did not apply to new windows. Ghostty runs
+  one process (`--gtk-single-instance=true`); new windows reuse its loaded config. The copy-style edit
+  replaced the file, so the `config-reload = auto` watcher missed it. `Ctrl+Shift+comma` (default
+  `reload_config`) can never fire: Shift+comma emits `<`, and Ghostty matches the shifted codepoint
+  (documented in `ghostty +show-config --default --docs`). Fixed in `~/.config/ghostty/config`:
+  `keybind = ctrl+shift+Comma=reload_config` (physical key code, layout-independent). Reload without a
+  restart: `busctl --user call com.mitchellh.ghostty /com/mitchellh/ghostty org.gtk.Actions Activate
+  sava{sv} reload-config 0 0`. Backup `config.bak-2026-10-23b`. `ghostty +validate-config` exits 0.
 
 ## Next tasks, in order
 
